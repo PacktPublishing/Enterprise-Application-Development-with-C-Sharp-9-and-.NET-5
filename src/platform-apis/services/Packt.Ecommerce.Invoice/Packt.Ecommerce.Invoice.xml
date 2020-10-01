@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Packt.Ecommerce.Invoice</name>
+    </assembly>
+    <members>
+        <member name="T:Packt.Ecommerce.Invoice.AutoMapperProfile">
+            <summary>
+            Automapper class.
+            </summary>
+            <seealso cref="T:AutoMapper.Profile" />
+        </member>
+        <member name="M:Packt.Ecommerce.Invoice.AutoMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.Invoice.AutoMapperProfile"/> class.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Invoice.AutoMapperProfile.MapEntity">
+            <summary>
+            Maps entities.
+            </summary>
+        </member>
+        <member name="T:Packt.Ecommerce.Invoice.Contracts.IInvoiceService">
+            <summary>
+            Invoice service contract for CRUD operations.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Invoice.Contracts.IInvoiceService.GetInvoiceByIdAsync(System.String)">
+            <summary>
+            Gets the invoice by identifier asynchronously.
+            </summary>
+            <param name="invoiceId">The invoice identifier.</param>
+            <returns>The invoice.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Invoice.Contracts.IInvoiceService.AddInvoiceAsync(Packt.Ecommerce.DTO.Models.InvoiceDetailsViewModel)">
+            <summary>
+            Adds the invoice asynchronously.
+            </summary>
+            <param name="invoice">The invoice.</param>
+            <returns>Invoice.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.Invoice.Controllers.InvoiceController">
+            <summary>
+            The invoice controller.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Invoice.Controllers.InvoiceController.invoiceService">
+            <summary>
+            The Invoice service.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Invoice.Controllers.InvoiceController.#ctor(Packt.Ecommerce.Invoice.Contracts.IInvoiceService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.Invoice.Controllers.InvoiceController"/> class.
+            </summary>
+            <param name="invoiceService">The Invoice service.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Invoice.Controllers.InvoiceController.GetInvoiceById(System.String)">
+            <summary>
+            Gets the Invoice by identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>Invoice.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Invoice.Controllers.InvoiceController.AddInvoiceAsync(Packt.Ecommerce.DTO.Models.InvoiceDetailsViewModel)">
+            <summary>
+            Adds the invoice asynchronously.
+            </summary>
+            <param name="invoice">The invoice.</param>
+            <returns>Invoice.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.Invoice.Program">
+            <summary>
+            The Program class.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Invoice.Program.Main(System.String[])">
+            <summary>
+            Defines the entry point of the application.
+            </summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Invoice.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Creates the host builder.
+            </summary>
+            <param name="args">arguments.</param>
+            <returns>Host builder.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.Invoice.Services.InvoiceService">
+            <summary>
+            The invoice service.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Invoice.Services.InvoiceService.ContentType">
+            <summary>
+            Content Type.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Invoice.Services.InvoiceService.applicationSettings">
+            <summary>
+            The application settings.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Invoice.Services.InvoiceService.httpClient">
+            <summary>
+            The HTTP client.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Invoice.Services.InvoiceService.autoMapper">
+            <summary>
+            The mapper.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Invoice.Services.InvoiceService.cacheService">
+            <summary>
+            The cache service.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Invoice.Services.InvoiceService.#ctor(System.Net.Http.IHttpClientFactory,Microsoft.Extensions.Options.IOptions{Packt.Ecommerce.Common.Options.ApplicationSettings},AutoMapper.IMapper,Packt.Ecommerce.Caching.Interfaces.IDistributedCacheService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.Invoice.Services.InvoiceService"/> class.
+            </summary>
+            <param name="httpClientFactory">The HTTP Client factory.</param>
+            <param name="applicationSettings">The application settings.</param>
+            <param name="autoMapper">The mapper.</param>
+            <param name="cacheService">cache service.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Invoice.Services.InvoiceService.AddInvoiceAsync(Packt.Ecommerce.DTO.Models.InvoiceDetailsViewModel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Invoice.Services.InvoiceService.GetInvoiceByIdAsync(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Invoice.Services.InvoiceService.ThrowServiceToServiceErrors(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Throws the service to service errors.
+            </summary>
+            <param name="response">The response.</param>
+            <returns>The task.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.Invoice.Startup">
+            <summary>
+            Startup class.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Invoice.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.Invoice.Startup"/> class.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="P:Packt.Ecommerce.Invoice.Startup.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>
+            The configuration.
+            </value>
+        </member>
+        <member name="M:Packt.Ecommerce.Invoice.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Invoice.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">The application.</param>
+            <param name="env">The env.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Invoice.Startup.RetryPolicy">
+            <summary>
+            The Retry policy.
+            </summary>
+            <returns>HttpResponseMessage.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Invoice.Startup.CircuitBreakerPolicy">
+            <summary>
+            Gets the circuit breaker policy.
+            </summary>
+            <returns>HttpResponseMessage.</returns>
+        </member>
+    </members>
+</doc>

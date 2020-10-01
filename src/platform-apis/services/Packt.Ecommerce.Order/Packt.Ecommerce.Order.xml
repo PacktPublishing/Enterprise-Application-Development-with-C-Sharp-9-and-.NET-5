@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Packt.Ecommerce.Order</name>
+    </assembly>
+    <members>
+        <member name="T:Packt.Ecommerce.Order.AutoMapperProfile">
+            <summary>
+            Automapper class.
+            </summary>
+            <seealso cref="T:AutoMapper.Profile" />
+        </member>
+        <member name="M:Packt.Ecommerce.Order.AutoMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.Order.AutoMapperProfile"/> class.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.AutoMapperProfile.MapEntity">
+            <summary>
+            Maps entities.
+            </summary>
+        </member>
+        <member name="T:Packt.Ecommerce.Order.Contracts.IOrderService">
+            <summary>
+            Orders service contract for CRUD operations.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Contracts.IOrderService.GetOrdersAsync(System.String)">
+            <summary>
+            Gets the orders asynchronously.
+            </summary>
+            <param name="filterCriteria">Criteria to filter orders.</param>
+            <returns>List of orders with minimum details.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Contracts.IOrderService.GetOrderByIdAsync(System.String)">
+            <summary>
+            Gets the order by identifier asynchronously.
+            </summary>
+            <param name="orderId">The order identifier.</param>
+            <returns>The order.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Contracts.IOrderService.AddOrderAsync(Packt.Ecommerce.DTO.Models.OrderDetailsViewModel)">
+            <summary>
+            Adds the order asynchronously.
+            </summary>
+            <param name="order">The order.</param>
+            <returns>Order.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Contracts.IOrderService.UpdateOrderAsync(Packt.Ecommerce.DTO.Models.OrderDetailsViewModel)">
+            <summary>
+            Updates the order asynchronously.
+            </summary>
+            <param name="order">The order.</param>
+            <returns>The HTTP Response.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.Order.Controllers.OrdersController">
+            <summary>
+            The orders RESTful service.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Packt.Ecommerce.Order.Controllers.OrdersController.orderService">
+            <summary>
+            The order service.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Controllers.OrdersController.#ctor(Packt.Ecommerce.Order.Contracts.IOrderService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.Order.Controllers.OrdersController"/> class.
+            </summary>
+            <param name="orderService">The order service.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Controllers.OrdersController.GetOrdersAsync(System.String)">
+            <summary>
+            Gets the orders.
+            </summary>
+            <param name="filterCriteria">Order filter criteria.</param>
+            <returns>Orders.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Controllers.OrdersController.GetOrderById(System.String)">
+            <summary>
+            Gets the order by identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>Order.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Controllers.OrdersController.AddOrderAsync(Packt.Ecommerce.DTO.Models.OrderDetailsViewModel)">
+            <summary>
+            Adds the order asynchronously.
+            </summary>
+            <param name="order">The order.</param>
+            <returns>Order.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Controllers.OrdersController.UpdateOrderAsync(Packt.Ecommerce.DTO.Models.OrderDetailsViewModel)">
+            <summary>
+            Updates the order asynchronously.
+            </summary>
+            <param name="order">The order.</param>
+            <returns>HTTP status code.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.Order.Program">
+            <summary>
+            The Program class.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Program.Main(System.String[])">
+            <summary>
+            Defines the entry point of the application.
+            </summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Creates the host builder.
+            </summary>
+            <param name="args">arguments.</param>
+            <returns>Host builder.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.Order.Services.OrdersService">
+            <summary>
+            Orders service contract for CRUD operations.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Order.Services.OrdersService.ContentType">
+            <summary>
+            Content Type.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Order.Services.OrdersService.applicationSettings">
+            <summary>
+            The application settings.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Order.Services.OrdersService.httpClient">
+            <summary>
+            The HTTP client.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Order.Services.OrdersService.autoMapper">
+            <summary>
+            The mapper.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Order.Services.OrdersService.cacheService">
+            <summary>
+            The cache service.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Services.OrdersService.#ctor(System.Net.Http.IHttpClientFactory,Microsoft.Extensions.Options.IOptions{Packt.Ecommerce.Common.Options.ApplicationSettings},AutoMapper.IMapper,Packt.Ecommerce.Caching.Interfaces.IDistributedCacheService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.Order.Services.OrdersService"/> class.
+            </summary>
+            <param name="httpClientFactory">The HTTP Client factory.</param>
+            <param name="applicationSettings">The application settings.</param>
+            <param name="autoMapper">The mapper.</param>
+            <param name="cacheService">cache service.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Services.OrdersService.AddOrderAsync(Packt.Ecommerce.DTO.Models.OrderDetailsViewModel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Services.OrdersService.GetOrderByIdAsync(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Services.OrdersService.GetOrdersAsync(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Services.OrdersService.UpdateOrderAsync(Packt.Ecommerce.DTO.Models.OrderDetailsViewModel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Services.OrdersService.ThrowServiceToServiceErrors(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Throws the service to service errors.
+            </summary>
+            <param name="response">The response.</param>
+            <returns>The task.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.Order.Startup">
+            <summary>
+            Startup class.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.Order.Startup"/> class.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="P:Packt.Ecommerce.Order.Startup.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>
+            The configuration.
+            </value>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">The application.</param>
+            <param name="env">The env.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Startup.RetryPolicy">
+            <summary>
+            The Retry policy.
+            </summary>
+            <returns>HttpResponseMessage.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Order.Startup.CircuitBreakerPolicy">
+            <summary>
+            Gets the circuit breaker policy.
+            </summary>
+            <returns>HttpResponseMessage.</returns>
+        </member>
+    </members>
+</doc>

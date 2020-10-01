@@ -1,0 +1,403 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Packt.Ecommerce.Data.Models</name>
+    </assembly>
+    <members>
+        <member name="T:Packt.Ecommerce.Data.Models.Address">
+            <summary>
+            Address model.
+            </summary>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Address.Address1">
+            <summary>
+            Gets or sets the address1.
+            </summary>
+            <value>
+            The address1.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Address.City">
+            <summary>
+            Gets or sets the city.
+            </summary>
+            <value>
+            The city.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Address.Country">
+            <summary>
+            Gets or sets the country.
+            </summary>
+            <value>
+            The country.
+            </value>
+        </member>
+        <member name="T:Packt.Ecommerce.Data.Models.Invoice">
+            <summary>
+            Invoice model.
+            </summary>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Invoice.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Invoice.OrderId">
+            <summary>
+            Gets or sets the order identifier.
+            </summary>
+            <value>
+            The order identifier.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Invoice.PaymentMode">
+            <summary>
+            Gets or sets the payment mode.
+            </summary>
+            <value>
+            The payment mode.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Invoice.ShippingAddress">
+            <summary>
+            Gets or sets the shipping address.
+            </summary>
+            <value>
+            The shipping address.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Invoice.SoldBy">
+            <summary>
+            Gets or sets the sold by.
+            </summary>
+            <value>
+            The sold by.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Invoice.Products">
+            <summary>
+            Gets or sets the products.
+            </summary>
+            <value>
+            The products.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Invoice.Etag">
+            <summary>
+            Gets or sets the etag.
+            </summary>
+            <value>
+            The etag.
+            </value>
+        </member>
+        <member name="T:Packt.Ecommerce.Data.Models.Order">
+            <summary>
+            Order class.
+            </summary>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Order.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Order.UserId">
+            <summary>
+            Gets or sets the user identifier.
+            </summary>
+            <value>
+            The user identifier.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Order.Products">
+            <summary>
+            Gets or sets the products.
+            </summary>
+            <value>
+            The products.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Order.OrderStatus">
+            <summary>
+            Gets or sets the order status.
+            </summary>
+            <value>
+            The order status.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Order.OrderPlacedDate">
+            <summary>
+            Gets or sets the order placed date.
+            </summary>
+            <value>
+            The order placed date.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Order.ShippingAddress">
+            <summary>
+            Gets or sets the shipping address.
+            </summary>
+            <value>
+            The shipping address.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Order.TrackingId">
+            <summary>
+            Gets or sets the tracking identifier.
+            </summary>
+            <value>
+            The tracking identifier.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Order.DeliveryDate">
+            <summary>
+            Gets or sets the delivery date.
+            </summary>
+            <value>
+            The delivery date.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Order.OrderTotal">
+            <summary>
+            Gets or sets the Order Total.
+            </summary>
+            <value>
+            The etag.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Order.PaymentMode">
+            <summary>
+            Gets or sets the payment mode.
+            </summary>
+            <value>
+            The payment mode.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Order.Etag">
+            <summary>
+            Gets or sets the etag.
+            </summary>
+            <value>
+            The etag.
+            </value>
+        </member>
+        <member name="T:Packt.Ecommerce.Data.Models.Product">
+            <summary>
+            Product class.
+            </summary>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Product.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Product.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Product.Category">
+            <summary>
+            Gets or sets the category.
+            </summary>
+            <value>
+            The category.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Product.Price">
+            <summary>
+            Gets or sets the price.
+            </summary>
+            <value>
+            The price.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Product.Quantity">
+            <summary>
+            Gets or sets the quantity.
+            </summary>
+            <value>
+            The quantity.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Product.CreatedDate">
+            <summary>
+            Gets or sets the created date.
+            </summary>
+            <value>
+            The created date.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Product.ImageUrls">
+            <summary>
+            Gets or sets the image urls.
+            </summary>
+            <value>
+            The image urls.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Product.Rating">
+            <summary>
+            Gets or sets the rating.
+            </summary>
+            <value>
+            The rating.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Product.Format">
+            <summary>
+            Gets or sets the format.
+            </summary>
+            <value>
+            The format.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Product.Authors">
+            <summary>
+            Gets or sets the authors.
+            </summary>
+            <value>
+            The authors.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Product.Size">
+            <summary>
+            Gets or sets the size.
+            </summary>
+            <value>
+            The size.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Product.Color">
+            <summary>
+            Gets or sets the color.
+            </summary>
+            <value>
+            The color.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Product.Etag">
+            <summary>
+            Gets or sets the etag.
+            </summary>
+            <value>
+            The etag.
+            </value>
+        </member>
+        <member name="T:Packt.Ecommerce.Data.Models.Rating">
+            <summary>
+            Rating class.
+            </summary>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Rating.Stars">
+            <summary>
+            Gets or sets the stars.
+            </summary>
+            <value>
+            The stars.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.Rating.Percentage">
+            <summary>
+            Gets or sets the percentage.
+            </summary>
+            <value>
+            The percentage.
+            </value>
+        </member>
+        <member name="T:Packt.Ecommerce.Data.Models.SoldBy">
+            <summary>
+            Soldby class.
+            </summary>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.SoldBy.SellerName">
+            <summary>
+            Gets or sets the name of the seller.
+            </summary>
+            <value>
+            The name of the seller.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.SoldBy.Email">
+            <summary>
+            Gets or sets the email.
+            </summary>
+            <value>
+            The email.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.SoldBy.Phone">
+            <summary>
+            Gets or sets the phone.
+            </summary>
+            <value>
+            The phone.
+            </value>
+        </member>
+        <member name="T:Packt.Ecommerce.Data.Models.User">
+            <summary>
+            User class.
+            </summary>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.User.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.User.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.User.Email">
+            <summary>
+            Gets or sets the email.
+            </summary>
+            <value>
+            The email.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.User.PhoneNumber">
+            <summary>
+            Gets or sets the phone number.
+            </summary>
+            <value>
+            The phone number.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.User.Address">
+            <summary>
+            Gets or sets the address.
+            </summary>
+            <value>
+            The address.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Data.Models.User.Etag">
+            <summary>
+            Gets or sets the etag.
+            </summary>
+            <value>
+            The etag.
+            </value>
+        </member>
+    </members>
+</doc>

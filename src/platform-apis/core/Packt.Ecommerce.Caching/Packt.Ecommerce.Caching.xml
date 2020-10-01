@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Packt.Ecommerce.Caching</name>
+    </assembly>
+    <members>
+        <member name="T:Packt.Ecommerce.Caching.DistributedCacheService">
+            <inheritdoc/>
+        </member>
+        <member name="F:Packt.Ecommerce.Caching.DistributedCacheService.DefaultCacheAbsoluteExpirationMinutes">
+            <summary>
+            The default cache expiration minutes.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Caching.DistributedCacheService.entitySerializer">
+            <summary>
+            The entity serializer.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Caching.DistributedCacheService.distributedCache">
+            <summary>
+            The distributed cache.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Caching.DistributedCacheService.distributedCacheEntryOptions">
+            <summary>
+            The distributed cache entry options.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Caching.DistributedCacheService.defaultCacheEntryAbsoluteExpriationTime">
+            <summary>
+            The default cache entry expriation time.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Caching.DistributedCacheService.#ctor(Microsoft.Extensions.Caching.Distributed.IDistributedCache,Packt.Ecommerce.Caching.Interfaces.IEntitySerializer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.Caching.DistributedCacheService"/> class.
+            </summary>
+            <param name="distributedCache">The distributed cache.</param>
+            <param name="entitySerializer">The entity serializer.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Caching.DistributedCacheService.AddOrUpdateCacheAsync``1(System.String,``0,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Caching.DistributedCacheService.AddOrUpdateCacheStringAsync(System.String,System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Caching.DistributedCacheService.GetCacheAsync``1(System.String,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Caching.DistributedCacheService.GetCacheStringAsync(System.String,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Caching.DistributedCacheService.RefreshCacheAsync(System.String,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Caching.DistributedCacheService.RemoveCacheAsync(System.String,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Packt.Ecommerce.Caching.EntitySerializer">
+            <summary>
+            JSON serializer implementation.
+            </summary>
+            <seealso cref="T:Packt.Ecommerce.Caching.Interfaces.IEntitySerializer" />
+        </member>
+        <member name="M:Packt.Ecommerce.Caching.EntitySerializer.DeserializeEntityAsync``1(System.Byte[],System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Caching.EntitySerializer.SerializeEntityAsync``1(``0,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Packt.Ecommerce.Caching.Interfaces.IDistributedCacheService">
+            <summary>
+            Interface for Cache Service.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Caching.Interfaces.IDistributedCacheService.AddOrUpdateCacheAsync``1(System.String,``0,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            Add or update cache entry of Type T asynchronously.
+            </summary>
+            <typeparam name="T">Type of return parameter.</typeparam>
+            <param name="cacheEntityKey">Key.</param>
+            <param name="cacheEntity">Cache entity.</param>
+            <param name="absoluteExpiration">Expiration.</param>
+            <param name="cancellationToken">Token.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> Task.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Caching.Interfaces.IDistributedCacheService.AddOrUpdateCacheStringAsync(System.String,System.String,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)">
+            <summary>
+            Add or update cache entry of string type asynchronously.
+            </summary>
+            <param name="cacheEntityKey">The key.</param>
+            <param name="cacheEntity">The value.</param>
+            <param name="absoluteExpiration">The expiration.</param>
+            <param name="cancellationToken">The token.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Caching.Interfaces.IDistributedCacheService.GetCacheAsync``1(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets cache entry of Type T asynchronously.
+            </summary>
+            <typeparam name="T">Type of return parameter.</typeparam>
+            <param name="cacheEntityKey">The key.</param>
+            <param name="cancellationToken">The token.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Caching.Interfaces.IDistributedCacheService.GetCacheStringAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets cache entry of string type asynchronously.
+            </summary>
+            <param name="cacheEntityKey">The key.</param>
+            <param name="cancellationToken">The token.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Caching.Interfaces.IDistributedCacheService.RefreshCacheAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Refresh cache entry asynchronously.
+            </summary>
+            <param name="cacheEntityKey">The key.</param>
+            <param name="cancellationToken">The token.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Caching.Interfaces.IDistributedCacheService.RemoveCacheAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Removes cache entry asynchronously.
+            </summary>
+            <param name="cacheEntityKey">The key.</param>
+            <param name="cancellationToken">The token.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.Caching.Interfaces.IEntitySerializer">
+            <summary>
+            Serializer interface.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Caching.Interfaces.IEntitySerializer.SerializeEntityAsync``1(``0,System.Threading.CancellationToken)">
+            <summary>
+            Serializes the specified object to byte array asynchronously.
+            </summary>
+            <typeparam name="T">Type of return parameter.</typeparam>
+            <param name="entity">The object to serialize.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+            Serialized object in form of byte array.
+            </returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Caching.Interfaces.IEntitySerializer.DeserializeEntityAsync``1(System.Byte[],System.Threading.CancellationToken)">
+            <summary>
+            Deserializes the specified stream asynchronously.
+            </summary>
+            <typeparam name="T">Type of return parameter.</typeparam>
+            <param name="entity">The stream.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+            The serialized data.
+            </returns>
+        </member>
+    </members>
+</doc>

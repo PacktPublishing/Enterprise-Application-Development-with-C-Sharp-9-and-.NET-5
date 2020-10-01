@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Packt.Ecommerce.Product</name>
+    </assembly>
+    <members>
+        <member name="T:Packt.Ecommerce.Product.AutoMapperProfile">
+            <summary>
+            Automapper class.
+            </summary>
+            <seealso cref="T:AutoMapper.Profile" />
+        </member>
+        <member name="M:Packt.Ecommerce.Product.AutoMapperProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.Product.AutoMapperProfile"/> class.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.AutoMapperProfile.MapEntity">
+            <summary>
+            Maps entities.
+            </summary>
+        </member>
+        <member name="T:Packt.Ecommerce.Product.Contracts.IProductService">
+            <summary>
+            Products service contract for CRUD operations.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Contracts.IProductService.GetProductsAsync(System.String)">
+            <summary>
+            Gets the products asynchronously.
+            </summary>
+            <param name="filterCriteria">Criteria to filter products.</param>
+            <returns>List of products with minimum details.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Contracts.IProductService.GetProductByIdAsync(System.String,System.String)">
+            <summary>
+            Gets the product by identifier asynchronously.
+            </summary>
+            <param name="productId">The product identifier.</param>
+            <param name="productName">Product name.</param>
+            <returns>The product.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Contracts.IProductService.AddProductAsync(Packt.Ecommerce.DTO.Models.ProductDetailsViewModel)">
+            <summary>
+            Adds the product asynchronously.
+            </summary>
+            <param name="product">The product.</param>
+            <returns>Product.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Contracts.IProductService.UpdateProductAsync(Packt.Ecommerce.DTO.Models.ProductDetailsViewModel)">
+            <summary>
+            Updates the product asynchronously.
+            </summary>
+            <param name="product">The product.</param>
+            <returns>The HTTP Response.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Contracts.IProductService.DeleteProductAsync(System.String,System.String)">
+            <summary>
+            Deletes the product asynchronous.
+            </summary>
+            <param name="productId">The product identifier.</param>
+            <param name="productName">Product name.</param>
+            <returns>The HTTP Response.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.Product.Controllers.ProductsController">
+            <summary>
+            The products RESTful service.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Packt.Ecommerce.Product.Controllers.ProductsController.productService">
+            <summary>
+            The product service.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Controllers.ProductsController.#ctor(Packt.Ecommerce.Product.Contracts.IProductService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.Product.Controllers.ProductsController"/> class.
+            </summary>
+            <param name="productService">The product service.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Controllers.ProductsController.GetProductsAsync(System.String)">
+            <summary>
+            Gets the products.
+            </summary>
+            <param name="filterCriteria">Product filter criteria.</param>
+            <returns>Products.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Controllers.ProductsController.GetProductById(System.String,System.String)">
+            <summary>
+            Gets the product by identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="name">Product name.</param>
+            <returns>Product.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Controllers.ProductsController.AddProductAsync(Packt.Ecommerce.DTO.Models.ProductDetailsViewModel)">
+            <summary>
+            Adds the product asynchronously.
+            </summary>
+            <param name="product">The product.</param>
+            <returns>Product.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Controllers.ProductsController.UpdateProductAsync(Packt.Ecommerce.DTO.Models.ProductDetailsViewModel)">
+            <summary>
+            Updates the product asynchronously.
+            </summary>
+            <param name="product">The product.</param>
+            <returns>HTTP status code.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Controllers.ProductsController.DeleteProductAsync(System.String,System.String)">
+            <summary>
+            Deletes the product asynchronous.
+            </summary>
+            <param name="id">The product identifier.</param>
+            <param name="name">Product name.</param>
+            <returns>The HTTP Response.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.Product.Program">
+            <summary>
+            The Program class.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Program.Main(System.String[])">
+            <summary>
+            Defines the entry point of the application.
+            </summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Creates the host builder.
+            </summary>
+            <param name="args">arguments.</param>
+            <returns>Host builder.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.Product.Services.ProductsService">
+            <summary>
+            Products service contract for CRUD operations.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Product.Services.ProductsService.ContentType">
+            <summary>
+            Content Type.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Product.Services.ProductsService.applicationSettings">
+            <summary>
+            The application settings.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Product.Services.ProductsService.httpClient">
+            <summary>
+            The HTTP client.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Product.Services.ProductsService.autoMapper">
+            <summary>
+            The mapper.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Product.Services.ProductsService.cacheService">
+            <summary>
+            The cache service.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Services.ProductsService.#ctor(System.Net.Http.IHttpClientFactory,Microsoft.Extensions.Options.IOptions{Packt.Ecommerce.Common.Options.ApplicationSettings},AutoMapper.IMapper,Packt.Ecommerce.Caching.Interfaces.IDistributedCacheService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.Product.Services.ProductsService"/> class.
+            </summary>
+            <param name="httpClientFactory">The HTTP Client factory.</param>
+            <param name="applicationSettings">The application settings.</param>
+            <param name="autoMapper">The mapper.</param>
+            <param name="cacheService">cache service.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Services.ProductsService.GetProductsAsync(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Services.ProductsService.AddProductAsync(Packt.Ecommerce.DTO.Models.ProductDetailsViewModel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Services.ProductsService.UpdateProductAsync(Packt.Ecommerce.DTO.Models.ProductDetailsViewModel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Services.ProductsService.GetProductByIdAsync(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Services.ProductsService.DeleteProductAsync(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Services.ProductsService.ThrowServiceToServiceErrors(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Throws the service to service errors.
+            </summary>
+            <param name="response">The response.</param>
+            <returns>The task.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.Product.Startup">
+            <summary>
+            Startup class.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.Product.Startup"/> class.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="P:Packt.Ecommerce.Product.Startup.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>
+            The configuration.
+            </value>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">The application.</param>
+            <param name="env">The env.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Startup.RetryPolicy">
+            <summary>
+            The Retry policy.
+            </summary>
+            <returns>HttpResponseMessage.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Product.Startup.CircuitBreakerPolicy">
+            <summary>
+            Gets the circuit breaker policy.
+            </summary>
+            <returns>HttpResponseMessage.</returns>
+        </member>
+    </members>
+</doc>

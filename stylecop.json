@@ -1,0 +1,15 @@
+﻿{
+  // https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/EnableConfiguration.md
+
+  "$schema": "https://raw.githubusercontent.com/DotNetAnalyzers/StyleCopAnalyzers/master/StyleCop.Analyzers/StyleCop.Analyzers/Settings/stylecop.schema.json",
+  "settings": {
+    "documentationRules": {
+      "companyName": "Packt",
+      "copyrightText": "Copyright (c) 2020 Packt Corporation. All rights reserved.",
+      "xmlHeader": true,
+      "headerDecoration": "\"//-----------------------------------------------------------------------\".",
+      "documentPrivateElements": true,
+      "documentPrivateFields": true
+    }
+  }
+}

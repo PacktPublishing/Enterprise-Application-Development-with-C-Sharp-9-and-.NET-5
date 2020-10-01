@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Packt.Ecommerce.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Packt.Ecommerce.Common.Constants">
+            <summary>
+            Class for reusable magic strings.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Common.Constants.ErrorHandlingMiddlewareErrorCode">
+            <summary>
+            The error handling middleware error code.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Common.Constants.ErrorMiddlewareLog">
+            <summary>
+            The error middleware log.
+            </summary>
+        </member>
+        <member name="T:Packt.Ecommerce.Common.Controllers.BaseApiController">
+            <summary>
+            Base API controller.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="T:Packt.Ecommerce.Common.Middlewares.ErrorHandlingMiddleware">
+            <summary>
+            Error handling middleware.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Common.Middlewares.ErrorHandlingMiddleware.requestDelegate">
+            <summary>
+            Reference to the next middleware.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Common.Middlewares.ErrorHandlingMiddleware.logger">
+            <summary>
+            Instance of the logger.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Common.Middlewares.ErrorHandlingMiddleware.includeExceptionDetailsInResponse">
+            <summary>
+            Indicates if the responses should contain exception details.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Common.Middlewares.ErrorHandlingMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Logging.ILogger{Packt.Ecommerce.Common.Middlewares.ErrorHandlingMiddleware},Microsoft.Extensions.Options.IOptions{Packt.Ecommerce.Common.Options.ApplicationSettings})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.Common.Middlewares.ErrorHandlingMiddleware" /> class.
+            </summary>
+            <param name="requestDelegate">Next middleware.</param>
+            <param name="logger">Logger instance.</param>
+            <param name="applicationSettings">Options accessor.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Common.Middlewares.ErrorHandlingMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Method is invoked when middleware is switched.
+            </summary>
+            <param name="context">Context of the invocation.</param>
+            <returns>Task of the invocation.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.Common.Models.ExceptionResponse">
+            <summary>
+            POCO to handle exception response.
+            </summary>
+        </member>
+        <member name="P:Packt.Ecommerce.Common.Models.ExceptionResponse.ErrorMessage">
+            <summary>
+            Gets or sets the error message.
+            </summary>
+            <value>
+            The message.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Common.Models.ExceptionResponse.CorrelationIdentifier">
+            <summary>
+            Gets or sets the correlation identifier.
+            </summary>
+            <value>
+            The correlation identifier.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Common.Models.ExceptionResponse.InnerException">
+            <summary>
+            Gets or sets the exception.
+            </summary>
+            <value>
+            The exception.
+            </value>
+        </member>
+        <member name="T:Packt.Ecommerce.Common.Options.ApplicationSettings">
+            <summary>
+            General Application settings POCO.
+            </summary>
+        </member>
+        <member name="P:Packt.Ecommerce.Common.Options.ApplicationSettings.IncludeExceptionStackInResponse">
+            <summary>
+            Gets or sets a value indicating whether [include exception stack in response].
+            </summary>
+            <value>
+              <c>true</c> if [include exception stack in response]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Common.Options.ApplicationSettings.UseRedisCache">
+            <summary>
+            Gets or sets a value indicating whether [use redis cache].
+            </summary>
+            <value>
+              <c>true</c> if [use redis cache]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Common.Options.ApplicationSettings.DataStoreEndpoint">
+            <summary>
+            Gets or sets the data store URL.
+            </summary>
+            <value>
+            The data store URL.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Common.Options.ApplicationSettings.ProductsApiEndpoint">
+            <summary>
+            Gets or sets the Products Api.
+            </summary>
+            <value>
+            The Products Api.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Common.Options.ApplicationSettings.InvoiceApiEndpoint">
+            <summary>
+            Gets or sets the Invoice Api.
+            </summary>
+            <value>
+            The Invoice Api.
+            </value>
+        </member>
+        <member name="P:Packt.Ecommerce.Common.Options.ApplicationSettings.OrdersApiEndpoint">
+            <summary>
+            Gets or sets the Orders Api.
+            </summary>
+            <value>
+            The Orders Api.
+            </value>
+        </member>
+        <member name="T:Packt.Ecommerce.Common.Validator.NotNullAttribute">
+            <summary>
+            The not null validation attribute.
+            </summary>
+            <seealso cref="T:System.Attribute" />
+        </member>
+        <member name="T:Packt.Ecommerce.Common.Validator.NotNullValidator">
+            <summary>
+            Validation extensions.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Common.Validator.NotNullValidator.ThrowIfNull(System.Object,System.String)">
+            <summary>
+            Throw argument null exception if value is null.
+            </summary>
+            <param name="input">The value to be validated.</param>
+            <param name="name">The parameter.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Common.Validator.NotNullValidator.ThrowIfNullOrEmpty(System.String,System.String)">
+            <summary>
+            Throw argument null exception if value is null or empty.
+            </summary>
+            <param name="input">The value to be validated.</param>
+            <param name="name">The parameter.</param>
+        </member>
+    </members>
+</doc>

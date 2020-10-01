@@ -1,0 +1,317 @@
+{
+	"info": {
+		"_postman_id": "fcd9b999-24da-4c6a-8711-4b2ca4f12690",
+		"name": "Mastering enterprise application development Book",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Create product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"id\": \"Book.1\",\r\n\t\t\"name\": \"Hands-On Microservices with Spring Boot and Spring Cloud: Build and Deploy Java Microservices Using Spring Cloud, Istio, and Kubernetes\",\r\n\t\t\"category\": \"Books\",\r\n\t\t\"price\": 500,\r\n\t\t\"quantity\": 10,\t\t\r\n\t\t\"imageUrls\": [\"https://ecommerceimagespackt.blob.core.windows.net/books/Book1.PNG\"],\r\n\t\t\"rating\": [\r\n\t\t\t{\r\n\t\t\t\t\"stars\": 5,\r\n\t\t\t\t\"percentage\": 80\r\n\t\t\t}\r\n\t\t],\t\t\r\n\t\t\"size\": [\r\n\t\t],\r\n\t\t\"color\": [\t\t\t\r\n\t\t],\r\n        \"Authors\":[\"Magnus Larsson\"],\r\n        \"Format\":[\"E Book\", \"Hard cover\"]\r\n\t}"
+						},
+						"url": {
+							"raw": "https://localhost:44346/api/products",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44346",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"Book.3\",\r\n    \"name\": \"AI Crash Course: A Fun and Hands-on Introduction to Machine Learning, Reinforcement Learning, Deep Learning, and Artificial Intelligence with Python\",\r\n    \"category\": \"Books\",\r\n    \"price\": 500,\r\n    \"quantity\": 10,\r\n    \"createdDate\": \"2020-09-16T16:57:31.1095445Z\",\r\n    \"imageUrls\": [\r\n        \"https://ecommerceimagespackt.blob.core.windows.net/books/Book3.PNG\"\r\n    ],\r\n    \"rating\": [\r\n        {\r\n            \"stars\": 5,\r\n            \"percentage\": 80\r\n        }\r\n    ],\r\n    \"format\": [\r\n        \"E Book\",\r\n        \"Hard cover\"\r\n    ],\r\n    \"authors\": [\r\n        \"Hadelin de Ponteves\"\r\n    ],\r\n    \"size\": [],\r\n    \"color\": [],\r\n    \"etag\": \"\"\r\n}"
+						},
+						"url": {
+							"raw": "https://localhost:44346/api/products",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44346",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get product by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44346/api/products/Cloth.1?name=Sweater Shirt",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44346",
+							"path": [
+								"api",
+								"products",
+								"Cloth.1"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Sweater Shirt"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44346/api/products",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44346",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://localhost:44346/api/products/Book.2?name=Hands-On Microservices with Spring Boot and Spring Cloud: Build and Deploy Java Microservices Using Spring Cloud, Istio, and Kubernetes",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44346",
+							"path": [
+								"api",
+								"products",
+								"Book.2"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Hands-On Microservices with Spring Boot and Spring Cloud: Build and Deploy Java Microservices Using Spring Cloud, Istio, and Kubernetes"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filter Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44346/api/products?filterCriteria=CONTAINS(e.Name,  'Microsdfdsfds')",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44346",
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "filterCriteria",
+									"value": "CONTAINS(e.Name,  'Microsdfdsfds')"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Get Orderby Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44392/api/orders/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44392",
+							"path": [
+								"api",
+								"orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44392/api/orders",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44392",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"Id\": null,\r\n\t\"UserId\": \"Test\",\r\n\t\"Products\": [\r\n\t\t{\r\n\t\t\t\"Id\": \"1\",\r\n\t\t\t\"Name\": \"T-Shirt\",\r\n\t\t\t\"Quantity\": 1,\r\n\t\t\t\"Price\": 10\t\t\t\r\n\t\t}\r\n\t],\r\n\t\"OrderStatus\": null,\r\n\t\"OrderPlacedDate\": \"20-02-2020T00:00:00Z\",\r\n\t\"ShippingAddress\": null,\r\n\t\"TrackingId\": 1,\r\n\t\"DeliveryDate\": \"28-02-2020T00:00:00Z\",\r\n\t\"Etag\": null\r\n}"
+						},
+						"url": {
+							"raw": "https://localhost:44392/api/orders",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44392",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\": \"ffc21b5c-d5c9-466f-b085-3316863450ab\",\r\n        \"userId\": \"test\",\r\n        \"products\": [\r\n            {\r\n                \"id\": null,\r\n                \"name\": \"Mastering Kubernetes\",\r\n                \"price\": 500,\r\n                \"imageUrls\": [\r\n                    \"https://ecommerceimagespackt.blob.core.windows.net/books/Book2.PNG\"\r\n                ],\r\n                \"averageRating\": 0,\r\n                \"quantity\": 1\r\n            },\r\n            {\r\n                \"id\": null,\r\n                \"name\": \"Sweater Shirt\",\r\n                \"price\": 100,\r\n                \"imageUrls\": [\r\n                    \"https://ecommerceimagespackt.blob.core.windows.net/clothes/Shirt.jpg\"\r\n                ],\r\n                \"averageRating\": 0,\r\n                \"quantity\": 1\r\n            },\r\n            {\r\n                \"id\": null,\r\n                \"name\": \"Formal Shirt\",\r\n                \"price\": 200,\r\n                \"imageUrls\": [\r\n                    \"https://ecommerceimagespackt.blob.core.windows.net/clothes/shirt2.jpg\"\r\n                ],\r\n                \"averageRating\": 0,\r\n                \"quantity\": 1\r\n            },\r\n            {\r\n                \"id\": null,\r\n                \"name\": \"Formal Shirt\",\r\n                \"price\": 200,\r\n                \"imageUrls\": [\r\n                    \"https://ecommerceimagespackt.blob.core.windows.net/clothes/shirt2.jpg\"\r\n                ],\r\n                \"averageRating\": 0,\r\n                \"quantity\": 1\r\n            },\r\n            {\r\n                \"id\": null,\r\n                \"name\": \"Formal Shirt\",\r\n                \"price\": 200,\r\n                \"imageUrls\": [\r\n                    \"https://ecommerceimagespackt.blob.core.windows.net/clothes/shirt2.jpg\"\r\n                ],\r\n                \"averageRating\": 0,\r\n                \"quantity\": 1\r\n            },\r\n            {\r\n                \"id\": null,\r\n                \"name\": \"Sweater Shirt\",\r\n                \"price\": 100,\r\n                \"imageUrls\": [\r\n                    \"https://ecommerceimagespackt.blob.core.windows.net/clothes/Shirt.jpg\"\r\n                ],\r\n                \"averageRating\": 0,\r\n                \"quantity\": 1\r\n            },\r\n            {\r\n                \"id\": null,\r\n                \"name\": \"Formal Shirt\",\r\n                \"price\": 200,\r\n                \"imageUrls\": [\r\n                    \"https://ecommerceimagespackt.blob.core.windows.net/clothes/shirt2.jpg\"\r\n                ],\r\n                \"averageRating\": 0,\r\n                \"quantity\": 1\r\n            },\r\n            {\r\n                \"id\": null,\r\n                \"name\": \"Sweater Shirt\",\r\n                \"price\": 100,\r\n                \"imageUrls\": [\r\n                    \"https://ecommerceimagespackt.blob.core.windows.net/clothes/Shirt.jpg\"\r\n                ],\r\n                \"averageRating\": 0,\r\n                \"quantity\": 1\r\n            },\r\n            {\r\n                \"id\": null,\r\n                \"name\": \"Formal Shirt\",\r\n                \"price\": 200,\r\n                \"imageUrls\": [\r\n                    \"https://ecommerceimagespackt.blob.core.windows.net/clothes/shirt2.jpg\"\r\n                ],\r\n                \"averageRating\": 0,\r\n                \"quantity\": 1\r\n            },\r\n            {\r\n                \"id\": null,\r\n                \"name\": \"Sweater Shirt\",\r\n                \"price\": 100,\r\n                \"imageUrls\": [\r\n                    \"https://ecommerceimagespackt.blob.core.windows.net/clothes/Shirt.jpg\"\r\n                ],\r\n                \"averageRating\": 0,\r\n                \"quantity\": 1\r\n            },\r\n            {\r\n                \"id\": null,\r\n                \"name\": \"Orange Shirt\",\r\n                \"price\": 500,\r\n                \"imageUrls\": [\r\n                    \"https://ecommerceimagespackt.blob.core.windows.net/clothes/shirt3.png\"\r\n                ],\r\n                \"averageRating\": 0,\r\n                \"quantity\": 1\r\n            },\r\n            {\r\n                \"id\": null,\r\n                \"name\": \"Sweater Shirt\",\r\n                \"price\": 100,\r\n                \"imageUrls\": [\r\n                    \"https://ecommerceimagespackt.blob.core.windows.net/clothes/Shirt.jpg\"\r\n                ],\r\n                \"averageRating\": 0,\r\n                \"quantity\": 1\r\n            }\r\n        ],\r\n        \"orderStatus\": \"Cart\",\r\n        \"etag\": \"\\\"30005712-0000-0700-0000-5f660c010000\\\"\",\r\n        \"orderTotal\": 2500     \r\n    }"
+						},
+						"url": {
+							"raw": "https://localhost:44392/api/orders",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44392",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Invoice",
+			"item": [
+				{
+					"name": "Get invoice by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44356/api/invoice/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44356",
+							"path": [
+								"api",
+								"invoice",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

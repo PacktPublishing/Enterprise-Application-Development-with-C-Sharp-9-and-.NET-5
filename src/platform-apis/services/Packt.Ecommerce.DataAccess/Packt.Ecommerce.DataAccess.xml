@@ -1,0 +1,282 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Packt.Ecommerce.DataAccess</name>
+    </assembly>
+    <members>
+        <member name="T:Packt.Ecommerce.DataAccess.Controllers.InvoiceController">
+            <summary>
+            Invoice controller.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Controllers.InvoiceController.repository">
+            <summary>
+            The invoice repository.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.InvoiceController.#ctor(Packt.Ecommerce.DataStore.Contracts.IInvoiceRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.DataAccess.Controllers.InvoiceController"/> class.
+            </summary>
+            <param name="repository">The repository.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.InvoiceController.GetAllInvoiceAsync(System.String)">
+            <summary>
+            Gets all invoice.
+            </summary>
+            <param name="filterCriteria">The filter criteria.</param>
+            <returns>Invoice.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.InvoiceController.GetInvoiceById(System.String)">
+            <summary>
+            Gets the invoice by identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>Invoice.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.InvoiceController.CreateInvoiceAsync(Packt.Ecommerce.Data.Models.Invoice)">
+            <summary>
+            Create the invoice.
+            </summary>
+            <param name="invoice">The invoice.</param>
+            <returns>HTTP Status code.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.InvoiceController.UpdateProductAsync(Packt.Ecommerce.Data.Models.Invoice)">
+            <summary>
+            Updates the Invoice.
+            </summary>
+            <param name="invoice">The Invoice.</param>
+            <returns>HTTP Status code.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.InvoiceController.DeleteProductAsync(System.String)">
+            <summary>
+            Deletes the invoice.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>HTTP Status code.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.DataAccess.Controllers.OrdersController">
+            <summary>
+            Orders controller.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Controllers.OrdersController.repository">
+            <summary>
+            The orders repository.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.OrdersController.#ctor(Packt.Ecommerce.DataStore.Contracts.IOrderRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.DataAccess.Controllers.OrdersController"/> class.
+            </summary>
+            <param name="repository">The repository.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.OrdersController.GetAllOrdersync(System.String)">
+            <summary>
+            Gets all order.
+            </summary>
+            <param name="filterCriteria">The filter criteria.</param>
+            <returns>Order.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.OrdersController.GetOrderById(System.String)">
+            <summary>
+            Gets the Order by identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>Order.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.OrdersController.CreateOrderAsync(Packt.Ecommerce.Data.Models.Order)">
+            <summary>
+            Create the order.
+            </summary>
+            <param name="order">The order.</param>
+            <returns>HTTP Status code.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.OrdersController.UpdateOrderAsync(Packt.Ecommerce.Data.Models.Order)">
+            <summary>
+            Updates the order.
+            </summary>
+            <param name="order">The Order.</param>
+            <returns>HTTP Status code.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.OrdersController.DeleteOrderAsync(System.String)">
+            <summary>
+            Deletes the order.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>HTTP Status code.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.DataAccess.Controllers.ProductsController">
+            <summary>
+            Products controller.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Controllers.ProductsController.repository">
+            <summary>
+            The products repository.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.ProductsController.#ctor(Packt.Ecommerce.DataStore.Contracts.IProductRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.DataAccess.Controllers.ProductsController"/> class.
+            </summary>
+            <param name="repository">The repository.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.ProductsController.GetAllProductAsync(System.String)">
+            <summary>
+            Gets all products.
+            </summary>
+            <param name="filterCriteria">The filter criteria.</param>
+            <returns>Products.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.ProductsController.GetProductById(System.String,System.String)">
+            <summary>
+            Gets the product by identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="name">The name.</param>
+            <returns>Product.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.ProductsController.CreateProductAsync(Packt.Ecommerce.Data.Models.Product)">
+            <summary>
+            Create the product.
+            </summary>
+            <param name="product">The product.</param>
+            <returns>HTTP Status code.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.ProductsController.UpdateProductAsync(Packt.Ecommerce.Data.Models.Product)">
+            <summary>
+            Updates the product.
+            </summary>
+            <param name="product">The product.</param>
+            <returns>HTTP Status code.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.ProductsController.DeleteProductAsync(System.String,System.String)">
+            <summary>
+            Deletes the product.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="name">The name.</param>
+            <returns>HTTP Status code.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.DataAccess.Controllers.UsersController">
+            <summary>
+            The user controller.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Controllers.UsersController.repository">
+            <summary>
+            The user repository.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.UsersController.#ctor(Packt.Ecommerce.DataStore.Contracts.IUserRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.DataAccess.Controllers.UsersController"/> class.
+            </summary>
+            <param name="repository">The repository.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.UsersController.GetAllUsersAsync(System.String)">
+            <summary>
+            Gets all users.
+            </summary>
+            <param name="filterCriteria">The filter criteria.</param>
+            <returns>Users.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.UsersController.GetUserById(System.String,System.String)">
+            <summary>
+            Gets the user by identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="email">The email.</param>
+            <returns>User.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.UsersController.CreateUserAsync(Packt.Ecommerce.Data.Models.User)">
+            <summary>
+            Creates the user asynchronously.
+            </summary>
+            <param name="user">The user.</param>
+            <returns>HTTP Status code.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.UsersController.UpdateUserAsync(Packt.Ecommerce.Data.Models.User)">
+            <summary>
+            Updates the user.
+            </summary>
+            <param name="user">The user.</param>
+            <returns>HTTP Status code.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Controllers.UsersController.DeleteUserAsync(System.String,System.String)">
+            <summary>
+            Deletes the user.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="email">The email.</param>
+            <returns>HTTP Status code.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.DataAccess.Extensions.RepositoryExtensions">
+            <summary>
+            Injects the data store repositories.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Extensions.RepositoryExtensions.AddRepositories(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Injects the data store repositories.
+            </summary>
+            <param name="services">Services.</param>
+            <returns>Scoped Services.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.DataAccess.Program">
+            <summary>
+            The Program class.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Program.Main(System.String[])">
+            <summary>
+            Defines the entry point of the application.
+            </summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Creates the host builder.
+            </summary>
+            <param name="args">arguments.</param>
+            <returns>Host builder.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.DataAccess.Startup">
+            <summary>
+            Startup class.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.DataAccess.Startup"/> class.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="P:Packt.Ecommerce.DataAccess.Startup.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>
+            The configuration.
+            </value>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">The application.</param>
+            <param name="env">The env.</param>
+        </member>
+    </members>
+</doc>

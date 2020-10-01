@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Packt.Ecommerce.DataStore</name>
+    </assembly>
+    <members>
+        <member name="T:Packt.Ecommerce.DataStore.BaseRepository`1">
+            <summary>
+            The generic repository.
+            </summary>
+            <typeparam name="TEntity">Generic entity if type class.</typeparam>
+        </member>
+        <member name="F:Packt.Ecommerce.DataStore.BaseRepository`1.container">
+            <summary>
+            The container.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.DataStore.BaseRepository`1.#ctor(Microsoft.Azure.Cosmos.CosmosClient,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.DataStore.BaseRepository`1"/> class.
+            </summary>
+            <param name="cosmosClient">cosmos client.</param>
+            <param name="databaseName">Name of the database.</param>
+            <param name="containerName">Name of the container.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.DataStore.BaseRepository`1.AddAsync(`0,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.DataStore.BaseRepository`1.GetAsync(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.DataStore.BaseRepository`1.GetByIdAsync(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.DataStore.BaseRepository`1.ModifyAsync(`0,System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.DataStore.BaseRepository`1.RemoveAsync(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Packt.Ecommerce.DataStore.Contracts.IBaseRepository`1">
+            <summary>
+            The generic repository.
+            </summary>
+            <typeparam name="TEntity">Generic entity if type class.</typeparam>
+        </member>
+        <member name="M:Packt.Ecommerce.DataStore.Contracts.IBaseRepository`1.GetAsync(System.String)">
+            <summary>
+            Get records from a container based on filterCriteria.
+            </summary>
+            <param name="filterCriteria">Optional filter criteria.</param>
+            <returns>The task.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.DataStore.Contracts.IBaseRepository`1.GetByIdAsync(System.String,System.String)">
+            <summary>
+            This method helps in retrieving any record from a container by its id and partition key.
+            </summary>
+            <param name="id">Id of entity.</param>
+            <param name="partitionKey">Partition key.</param>
+            <returns>The entity.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.DataStore.Contracts.IBaseRepository`1.AddAsync(`0,System.String)">
+            <summary>
+            Allows to insert a record in a container.
+            </summary>
+            <param name="entity">The Entity.</param>
+            <param name="partitionKey">The partition key.</param>
+            <returns>The ItemResponse.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.DataStore.Contracts.IBaseRepository`1.ModifyAsync(`0,System.String,System.String)">
+            <summary>
+            This method allows to upsert (modify if record is present else insert) a record in  a container.
+            </summary>
+            <param name="entity">The entity.</param>
+            /// <param name="etag">The etag for optimistic concurrency.</param>
+            <param name="partitionKey">the partition key.</param>
+            <returns>success or failure of modification.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.DataStore.Contracts.IBaseRepository`1.RemoveAsync(System.String,System.String)">
+            <summary>
+            This method allows deletion of a record from a container.
+            </summary>
+            <param name="id">Id of entity.</param>
+            <param name="partitionKey">Partition key.</param>
+            <returns>success or failure of deletion.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.DataStore.Contracts.IInvoiceRepository">
+            <summary>
+            The invoice repostiry.
+            </summary>
+        </member>
+        <member name="T:Packt.Ecommerce.DataStore.Contracts.IOrderRepository">
+            <summary>
+            The order repository.
+            </summary>
+        </member>
+        <member name="T:Packt.Ecommerce.DataStore.Contracts.IProductRepository">
+            <summary>
+            The product repository.
+            </summary>
+        </member>
+        <member name="T:Packt.Ecommerce.DataStore.Contracts.IUserRepository">
+            <summary>
+            The user repository.
+            </summary>
+        </member>
+        <member name="T:Packt.Ecommerce.DataStore.DatabaseSettingsOptions">
+            <summary>
+            Class to map database settings.
+            </summary>
+        </member>
+        <member name="P:Packt.Ecommerce.DataStore.DatabaseSettingsOptions.DataBaseName">
+            <summary>
+            Gets or sets the name of the data base.
+            </summary>
+            <value>
+            The name of the data base.
+            </value>
+        </member>
+        <member name="T:Packt.Ecommerce.DataStore.InvoiceRepository">
+            <summary>
+            The Invoice repository.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataStore.InvoiceRepository.databaseSettings">
+            <summary>
+            The database settings.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.DataStore.InvoiceRepository.#ctor(Microsoft.Azure.Cosmos.CosmosClient,Microsoft.Extensions.Options.IOptions{Packt.Ecommerce.DataStore.DatabaseSettingsOptions})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.DataStore.InvoiceRepository"/> class.
+            </summary>
+            <param name="cosmosClient">The cosmos client.</param>
+            <param name="databaseSettingsOption">The database settings option.</param>
+        </member>
+        <member name="T:Packt.Ecommerce.DataStore.OrderRepository">
+            <summary>
+            The order repository.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataStore.OrderRepository.databaseSettings">
+            <summary>
+            The database settings.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.DataStore.OrderRepository.#ctor(Microsoft.Azure.Cosmos.CosmosClient,Microsoft.Extensions.Options.IOptions{Packt.Ecommerce.DataStore.DatabaseSettingsOptions})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.DataStore.OrderRepository"/> class.
+            </summary>
+            <param name="cosmosClient">The cosmos client.</param>
+            <param name="databaseSettingsOption">The database settings option.</param>
+        </member>
+        <member name="T:Packt.Ecommerce.DataStore.ProductRepository">
+            <summary>
+            The product repository.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataStore.ProductRepository.databaseSettings">
+            <summary>
+            The database settings.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.DataStore.ProductRepository.#ctor(Microsoft.Azure.Cosmos.CosmosClient,Microsoft.Extensions.Options.IOptions{Packt.Ecommerce.DataStore.DatabaseSettingsOptions})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.DataStore.ProductRepository"/> class.
+            </summary>
+            <param name="cosmosClient">The cosmos client.</param>
+            <param name="databaseSettingsOption">The database settings option.</param>
+        </member>
+        <member name="T:Packt.Ecommerce.DataStore.UserRepository">
+            <summary>
+            The User repository.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataStore.UserRepository.databaseSettings">
+            <summary>
+            The database settings.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.DataStore.UserRepository.#ctor(Microsoft.Azure.Cosmos.CosmosClient,Microsoft.Extensions.Options.IOptions{Packt.Ecommerce.DataStore.DatabaseSettingsOptions})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.DataStore.UserRepository"/> class.
+            </summary>
+            <param name="cosmosClient">The cosmos client.</param>
+            <param name="databaseSettingsOption">The database settings option.</param>
+        </member>
+    </members>
+</doc>
