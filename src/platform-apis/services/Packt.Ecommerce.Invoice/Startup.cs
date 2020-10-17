@@ -69,7 +69,7 @@ namespace Packt.Ecommerce.Invoice
             services.AddSingleton<IEntitySerializer, EntitySerializer>();
             services.AddSingleton<IDistributedCacheService, DistributedCacheService>();
 
-            if (this.Configuration.GetValue<bool>("AppSettings:UseRedis"))
+            if (this.Configuration.GetValue<bool>("ApplicationSettings:UseRedis"))
             {
                 services.AddStackExchangeRedisCache(options =>
                 {
@@ -82,7 +82,7 @@ namespace Packt.Ecommerce.Invoice
             }
 
             // App insights.
-            string appinsightsInstrumentationKey = this.Configuration.GetValue<string>("AppSettings:InstrumentationKey");
+            string appinsightsInstrumentationKey = this.Configuration.GetValue<string>("ApplicationSettings:InstrumentationKey");
 
             if (!string.IsNullOrWhiteSpace(appinsightsInstrumentationKey))
             {

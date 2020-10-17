@@ -58,7 +58,7 @@ namespace Packt.Ecommerce.DataAccess
             services.AddRepositories();
 
             // App insights.
-            string appinsightsInstrumentationKey = this.Configuration.GetValue<string>("AppSettings:InstrumentationKey");
+            string appinsightsInstrumentationKey = this.Configuration.GetValue<string>("ApplicationSettings:InstrumentationKey");
 
             if (!string.IsNullOrWhiteSpace(appinsightsInstrumentationKey))
             {
