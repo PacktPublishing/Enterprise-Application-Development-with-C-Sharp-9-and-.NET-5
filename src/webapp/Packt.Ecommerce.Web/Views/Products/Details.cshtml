@@ -1,0 +1,131 @@
+﻿@model Packt.Ecommerce.DTO.Models.ProductDetailsViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<form asp-action="Index" asp-controller="Cart">
+    <input asp-for="Id" type="hidden">
+    <input asp-for="Name" type="hidden">
+    <input asp-for="Price" type="hidden">
+    <input asp-for="ImageUrls[0]" type="hidden">
+    <section class="content">
+        <!-- Default box -->
+        <div class="card card-solid">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-sm-6 w-100">
+                        <div class="col-12 col-sm-6 p-1 w-100">
+                            <div class="col-12 w-100">
+                                <img src="@Model.ImageUrls[0]" class="w-100" alt="Product">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <h3 class="my-3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Model.Name</font></font></h3>
+                        <hr>
+                        @if (Model.Category == "Clothing")
+                        {
+                            <h4 class="mt-3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Available Size </font></font></h4>
+                            @foreach (var item in Model.Size)
+                            {
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-default text-center">
+                                        <input type="radio" name="color_option" id="color_option1" autocomplete="off">
+                                        <span class="text-xl"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> @item</font></font></span>
+                                    </label>
+                                </div>
+                            }
+                            <h4 class="mt-3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Available Color </font></font></h4>
+                            @foreach (var item in Model.Color)
+                            {
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-default text-center">
+                                        <input type="radio" name="color_option" id="color_option1" autocomplete="off">
+                                        <span class="text-xl"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> @item</font></font></span>
+                                    </label>
+                                </div>
+                            }
+                        }
+                        @if (Model.Category == "Books")
+                        {
+                            <h4 class="mt-3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Authors </font></font></h4>
+                            @foreach (var item in Model.Authors)
+                            {
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-default text-center">
+                                        <input type="radio" name="color_option" id="color_option1" autocomplete="off">
+                                        <span class="text-xl"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> @item</font></font></span>
+                                    </label>
+                                </div>
+                            }
+                            <h4 class="mt-3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Available Formats </font></font></h4>
+                            @foreach (var item in Model.Format)
+                            {
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-default text-center">
+                                        <input type="radio" name="color_option" id="color_option1" autocomplete="off">
+                                        <span class="text-xl"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> @item</font></font></span>
+                                    </label>
+                                </div>
+                            }
+                        }
+                        <div class="bg-gray py-2 px-3 mt-4">
+                            <h2 class="mb-0">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        $  @Model.Price
+                                    </font>
+                                </font>
+                            </h2>
+                        </div>
+                        <button class="btn btn-navbar" type="submit">
+                            <div class="mt-4">
+                                <div class="btn btn-primary btn-lg btn-flat">
+                                    <i class="fas fa-cart-plus fa-lg mr-2"></i><font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            Add to Cart
+                                        </font>
+                                    </font>
+                                </div>
+                            </div>
+                        </button>
+
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <nav class="w-100">
+                        <div class="nav nav-tabs" id="product-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Description</font></font></a>
+                            <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#product-rating" role="tab" aria-controls="product-rating" aria-selected="false"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Rating</font></font></a>
+                        </div>
+                    </nav>
+                    <div class="tab-content p-3" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">@Model.Name </font></font></div>
+                        <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab">
+                            @foreach (var item in Model.Rating)
+                            {
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-default text-center">
+                                        <input type="radio" name="color_option" id="color_option1" autocomplete="off">
+                                        <span class="text-xl"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> @item.Stars</font></font></span>
+                                    </label>
+                                </div>
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-default text-center">
+                                        <input type="radio" name="color_option" id="color_option1" autocomplete="off">
+                                        <span class="text-xl"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> @item.Percentage</font></font></span>
+                                    </label>
+                                </div>
+                                <br />
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+    </section>
+
+</form>

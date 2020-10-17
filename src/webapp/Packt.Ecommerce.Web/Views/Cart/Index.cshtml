@@ -1,0 +1,157 @@
+﻿@model Packt.Ecommerce.DTO.Models.OrderDetailsViewModel
+@{
+    ViewData["Title"] = "Cart";    
+}
+
+<form asp-action="Create" asp-controller="Orders">
+    <input asp-for="Id" type="hidden" />
+    <input asp-for="UserId" type="hidden" />
+    <input asp-for="Etag" type="hidden" />
+    <input asp-for="OrderTotal" type="hidden" />
+
+    <div class="wrapper">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-4">
+                            <!-- Main content -->
+                            <div class="invoice p-3 mb-3">
+                                <!-- /.row -->
+                                <!-- Table row -->
+                                <div class="row">
+                                    <div class="col-12 table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Qty</th>
+                                                    <th>Image</th>
+                                                    <th>Product</th>
+                                                    <th>Subtotal</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (int counter = 0; counter < Model.Products.Count; counter++)
+                                                {
+                                                <tr>                                                    
+                                                    @Html.Hidden("products.Index", (counter + 10))
+                                                    @Html.Hidden("products[" + (counter + 10) + "].Id", Model.Products[counter].Id)
+                                                    @Html.Hidden("products[" + (counter + 10) + "].Quantity", Model.Products[counter].Quantity)
+                                                    <td>@Model.Products[counter].Quantity</td>
+                                                    @Html.Hidden("products[" + (counter + 10) + "].ImageUrls[0]", Model.Products[counter].ImageUrls[0])
+                                                    <td><img src="@Model.Products[counter].ImageUrls[0]" class="product-image w-10" alt="Product"></td>
+                                                    @Html.Hidden("products[" + (counter + 10) + "].Name", Model.Products[counter].Name)
+                                                    <td>@Model.Products[counter].Name</td>
+                                                    @Html.Hidden("products[" + (counter + 10) + "].Price", Model.Products[counter].Price)
+                                                    <td>@Model.Products[counter].Price</td>
+                                                </tr>
+                                                }
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td><b>Total</b></td>
+                                                    <td><b>@Model.OrderTotal</b></td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <!-- /.col -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+                            <!-- /.invoice -->
+                        </div><!-- /.col -->
+                        <div class="col-8">
+                            <div class="text-center">
+                                <h2>Checkout form</h2>
+                            </div>
+                            <h4 class="mb-3">Billing address</h4>
+                            <div class="mb-3">
+                                <label for="address">Address</label>                                
+                                <input type="text" class="form-control" id="ShippingAddress.Address1" name="ShippingAddress.Address1" placeholder="1234 Main St" required>
+                                <div class="invalid-feedback">
+                                    Please enter your shipping address.
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="address2">City</label>
+                                <input type="text" class="form-control" id="ShippingAddress.City" name="ShippingAddress.City" placeholder="Hyderabad" required>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-5 mb-3">
+                                    <label for="country">Country</label>
+                                    <select class="custom-select d-block w-100" id="ShippingAddress.Country" name="ShippingAddress.Country" required>
+                                        <option value="">Choose...</option>
+                                        <option value="India">India</option>
+                                        <option value="United States">United States</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <hr class="mb-4">
+                            <h4 class="mb-3">Payment</h4>
+
+                            <div class="d-block my-3">
+                                <!-- accepted payments column -->
+                                <div class="col-9">
+                                    @Html.RadioButtonFor(m => m.PaymentMode, "Visa")
+                                    <img src="~/img/credit/visa.png" alt="Visa">
+                                    @Html.RadioButtonFor(m => m.PaymentMode, "MasterCard")
+                                    <img src="~/img/credit/mastercard.png" alt="Mastercard">
+                                    @Html.RadioButtonFor(m => m.PaymentMode, "AmericanExpress")
+                                    <img src="~/img/credit/american-express.png" alt="American Express">
+                                    @Html.RadioButtonFor(m => m.PaymentMode, "Paypal")
+                                    <img src="~/img/credit/paypal2.png" alt="Paypal">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="cc-name">Name on card</label>
+                                    <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                                    <small class="text-muted">Full name as displayed on card</small>
+                                    <div class="invalid-feedback">
+                                        Name on card is required
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="cc-number">Credit card number</label>
+                                    <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                                    <div class="invalid-feedback">
+                                        Credit card number is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 mb-3">
+                                    <label for="cc-expiration">Expiration</label>
+                                    <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                                    <div class="invalid-feedback">
+                                        Expiration date required
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <label for="cc-expiration">CVV</label>
+                                    <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                                    <div class="invalid-feedback">
+                                        Security code required
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="mb-4">
+                            <button class="btn btn-primary btn-lg btn-block" type="submit">Place Order</button>
+                        </div>
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+
+</form>

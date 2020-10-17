@@ -1,0 +1,300 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Packt.Ecommerce.Web</name>
+    </assembly>
+    <members>
+        <member name="T:Packt.Ecommerce.Web.Contracts.IECommerceService">
+            <summary>
+            Common service interacting with backend.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Contracts.IECommerceService.GetProductsAsync(System.String)">
+            <summary>
+            // Method to retrieve all products and filter.
+            </summary>
+            <param name="filterCriteria">Filter criteria.</param>
+            <returns>List of products.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Contracts.IECommerceService.GetProductByIdAsync(System.String,System.String)">
+            <summary>
+            // Method to get details of specific product.
+            </summary>
+            <param name="productId">Product Id.</param>
+            <param name="productName">Product Name.</param>
+            <returns>Product.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Contracts.IECommerceService.CreateOrUpdateOrder(Packt.Ecommerce.DTO.Models.OrderDetailsViewModel)">
+            <summary>
+            // Method to create and order, this method is primarily used to create a cart which is nothing but an order with order status as “Cart”.
+            </summary>
+            <param name="order">Order to be created.</param>
+            <returns>Order.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Contracts.IECommerceService.GetOrderByIdAsync(System.String)">
+            <summary>
+            // Method to retrieve order by ID, also used to retrieve cart/order before checkout.
+            </summary>
+            <param name="orderId">Order Id.</param>
+            <returns>Order.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Contracts.IECommerceService.GetInvoiceByIdAsync(System.String)">
+            <summary>
+            Method to retrieve invoice details by Id.
+            </summary>
+            <param name="invoiceId">Invoice Id.</param>
+            <returns>Invoice.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Contracts.IECommerceService.SubmitOrder(Packt.Ecommerce.DTO.Models.OrderDetailsViewModel)">
+            <summary>
+            Method to submit cart and create invoice.
+            </summary>
+            <param name="order">Order.</param>
+            <returns>Invoice.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.Web.Controllers.CartController">
+            <summary>
+            Shopping Cart controller.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Web.Controllers.CartController.logger">
+            <summary>
+            Logger instance.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Web.Controllers.CartController.eCommerceService">
+            <summary>
+            Ecommerce instance.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Controllers.CartController.#ctor(Microsoft.Extensions.Logging.ILogger{Packt.Ecommerce.Web.Controllers.CartController},Packt.Ecommerce.Web.Contracts.IECommerceService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.Web.Controllers.CartController"/> class.
+            </summary>
+            <param name="logger">Logger.</param>
+            <param name="eCommerceService">Service.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Controllers.CartController.Index(Packt.Ecommerce.DTO.Models.ProductListViewModel)">
+            <summary>
+            Add products to cart.
+            </summary>
+            <param name="product">Product.</param>
+            <returns>Created OrderId.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Controllers.CartController.Index(System.String)">
+            <summary>
+            Get the details of cart.
+            </summary>
+            <param name="orderId">Order Id.</param>
+            <returns>Cart (Order).</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.Web.Controllers.OrdersController">
+            <summary>
+            Orders controller.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Web.Controllers.OrdersController.logger">
+            <summary>
+            Logger instance.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Web.Controllers.OrdersController.eCommerceService">
+            <summary>
+            Ecommerce instance.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Controllers.OrdersController.#ctor(Microsoft.Extensions.Logging.ILogger{Packt.Ecommerce.Web.Controllers.OrdersController},Packt.Ecommerce.Web.Contracts.IECommerceService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.Web.Controllers.OrdersController"/> class.
+            </summary>
+            <param name="logger">Logger.</param>
+            <param name="eCommerceService">Service.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Controllers.OrdersController.Create(Packt.Ecommerce.DTO.Models.OrderDetailsViewModel)">
+            <summary>
+            Submit and order and generate invoice.
+            </summary>
+            <param name="order">Order.</param>
+            <returns>Invoice id.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Controllers.OrdersController.Index(System.String)">
+            <summary>
+            Load the invoice.
+            </summary>
+            <param name="invoiceId">Invoice id.</param>
+            <returns>Invoice.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.Web.Controllers.ProductsController">
+            <summary>
+            The products Controller.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Web.Controllers.ProductsController.logger">
+            <summary>
+            Logger instance.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Web.Controllers.ProductsController.eCommerceService">
+            <summary>
+            Ecommerce instance.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Controllers.ProductsController.#ctor(Microsoft.Extensions.Logging.ILogger{Packt.Ecommerce.Web.Controllers.ProductsController},Packt.Ecommerce.Web.Contracts.IECommerceService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.Web.Controllers.ProductsController"/> class.
+            </summary>
+            <param name="logger">Logger.</param>
+            <param name="eCommerceService">Service.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Controllers.ProductsController.Index(System.String,System.String)">
+            <summary>
+            Load all products.
+            </summary>
+            <param name="searchString">search string.</param>
+            <param name="category">Category.</param>
+            <returns>Products.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Controllers.ProductsController.Details(System.String,System.String)">
+            <summary>
+            Get product details.
+            </summary>
+            <param name="productId">Id.</param>
+            <param name="productName">Name.</param>
+            <returns>Product.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Controllers.ProductsController.Error(System.Int32)">
+            <summary>
+            Error handler.
+            </summary>
+            <param name="code">Error code.</param>
+            <returns>Action result.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.Web.Models.ErrorViewModel">
+            <summary>
+            Error view model.
+            </summary>
+        </member>
+        <member name="P:Packt.Ecommerce.Web.Models.ErrorViewModel.CorrelationId">
+            <summary>
+            Gets or sets the CorrelationId.
+            </summary>
+            <value>
+            The CorrelationId.
+            </value>
+        </member>
+        <member name="T:Packt.Ecommerce.Web.Program">
+            <summary>
+            The program class.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Program.Main(System.String[])">
+            <summary>
+            Defines the entry point of the application.
+            </summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Creates the host builder.
+            </summary>
+            <param name="args">arguments.</param>
+            <returns>Host builder.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.Web.Services.ECommerceService">
+            <summary>
+            Common service interacting with backend.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Web.Services.ECommerceService.ContentType">
+            <summary>
+            Content Type.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Web.Services.ECommerceService.httpClient">
+            <summary>
+            The HTTP client.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.Web.Services.ECommerceService.applicationSettings">
+            <summary>
+            Application settings.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Services.ECommerceService.#ctor(System.Net.Http.IHttpClientFactory,Microsoft.Extensions.Options.IOptions{Packt.Ecommerce.Common.Options.ApplicationSettings})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.Web.Services.ECommerceService"/> class.
+            </summary>
+            <param name="httpClientFactory">The HTTP client factory.</param>
+            <param name="applicationSettings">The application settings.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Services.ECommerceService.GetProductsAsync(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Services.ECommerceService.GetProductByIdAsync(System.String,System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Services.ECommerceService.CreateOrUpdateOrder(Packt.Ecommerce.DTO.Models.OrderDetailsViewModel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Services.ECommerceService.GetOrderByIdAsync(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Services.ECommerceService.GetInvoiceByIdAsync(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Services.ECommerceService.SubmitOrder(Packt.Ecommerce.DTO.Models.OrderDetailsViewModel)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Services.ECommerceService.ThrowServiceToServiceErrors(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Throws the service to service errors.
+            </summary>
+            <param name="response">The response.</param>
+            <returns>The task.</returns>
+        </member>
+        <member name="T:Packt.Ecommerce.Web.Startup">
+            <summary>
+            Startup class.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.Web.Startup"/> class.
+            </summary>
+            <param name="configuration">The configuration.</param>
+        </member>
+        <member name="P:Packt.Ecommerce.Web.Startup.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>
+            The configuration.
+            </value>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">The application.</param>
+            <param name="env">The env.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Startup.RetryPolicy">
+            <summary>
+            The Retry policy.
+            </summary>
+            <returns>HttpResponseMessage.</returns>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Startup.CircuitBreakerPolicy">
+            <summary>
+            Gets the circuit breaker policy.
+            </summary>
+            <returns>HttpResponseMessage.</returns>
+        </member>
+    </members>
+</doc>

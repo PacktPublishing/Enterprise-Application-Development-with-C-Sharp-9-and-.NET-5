@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Packt.Ecommerce.DTO.Models.ProductListViewModel>
+@{
+    ViewData["Title"] = "Products";
+}
+    
+<section class="content">
+    <!-- Default box -->
+    <div class="card card-solid">
+        <div class="card-body">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-12 col-sm-4 p-1">
+                        <div class="col-12">
+                            <a asp-action="Details" asp-route-productId="@item.Id" asp-route-productName="@item.Name">
+                                <img src="@item.ImageUrls[0]" class="product-image w-75" alt="Product">
+                            </a>
+                        </div>                                                
+                        <h3 class="product-description">@item.Name</h3>
+                        <div class="bg-gray py-2 px-3 mt-4">
+                            <h2 class="mb-0">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        $ @item.Price
+                                    </font>
+                                </font>
+                            </h2>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+</section>
+
