@@ -1,0 +1,26 @@
+﻿@model IEnumerable<WeatherForecast>
+
+
+
+<div class="text-center">
+    <h1 class="display-4">Method Injection</h1>
+    <p>WeatherProvider serice injected via Method injection</p>
+</div>
+
+
+
+<h2>@Model.First().Location</h2>
+<table>
+    <thead>
+        <td>Date</td>
+        <td>Temperature</td>
+    </thead>
+     @foreach (var c in Model)
+    {
+        <tr>
+            <td>@c.Date</td>
+            <td>@c.TemperatureC</td>
+        </tr>
+        
+    }
+</table>

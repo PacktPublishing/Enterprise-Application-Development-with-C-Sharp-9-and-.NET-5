@@ -1,0 +1,29 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<h2 class="text-success">Singleton.</h2>
+<p>
+        <strong>ID:</strong> <code>@Model.Singleton</code>
+</p>
+
+<h2 class="text-success">Scoped instance 1</h2>
+<p>
+        <strong>ID:</strong> <code>@Model.Scoped</code>
+</p>
+<h2 class="text-success">Scoped instance 2</h2>
+<p>
+        <strong>ID:</strong> <code>@Model.Scoped2</code>
+</p>
+<h2 class="text-success">Transient instance 1</h2>
+<p>
+        <strong>ID:</strong> <code>@Model.Transient</code>
+</p>
+
+<h2 class="text-success">Transient instance 2</h2>
+<p>
+        <strong>ID:</strong> <code>@Model.Transient2</code>
+</p>
