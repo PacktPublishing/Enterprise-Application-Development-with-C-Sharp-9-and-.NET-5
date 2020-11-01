@@ -7,13 +7,17 @@
 namespace Packt.Ecommerce.Web
 {
     using System;
+    using System.Linq;
     using System.Net.Http;
     using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Diagnostics.HealthChecks;
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Microsoft.Extensions.Logging;
+    using Newtonsoft.Json;
     using Packt.Ecommerce.Common.Options;
     using Packt.Ecommerce.Web.Contracts;
     using Packt.Ecommerce.Web.Services;
@@ -67,6 +71,12 @@ namespace Packt.Ecommerce.Web
                 });
                 services.AddApplicationInsightsTelemetry(appinsightsInstrumentationKey);
             }
+
+            // Add health check services to the container.
+            services.AddHealthChecks()
+                .AddUrlGroup(new Uri(this.Configuration.GetValue<string>("ApplicationSettings:ProductsApiEndpoint")), name: "Product Service")
+                .AddUrlGroup(new Uri(this.Configuration.GetValue<string>("ApplicationSettings:OrdersApiEndpoint")), name: "Order Service")
+                .AddProcessMonitor("notepad", name: "Notepad monitor");
         }
 
         /// <summary>
@@ -74,6 +84,8 @@ namespace Packt.Ecommerce.Web
         /// </summary>
         /// <param name="app">The application.</param>
         /// <param name="env">The env.</param>
+#pragma warning disable SA1413 // Use trailing comma in multi-line initializers
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseStatusCodePagesWithReExecute("/Products/Error/{0}");
@@ -96,7 +108,27 @@ namespace Packt.Ecommerce.Web
                     name: "default",
                     pattern: "{controller=Products}/{action=Index}/{id?}");
             });
+            app.UseHealthChecks("/health", new HealthCheckOptions
+            {
+                ResponseWriter = async (context, report) =>
+                {
+                    context.Response.ContentType = "application/json";
+                    var response = new
+                    {
+                        Status = report.Status.ToString(),
+                        HealthChecks = report.Entries.Select(x => new
+                        {
+                            Component = x.Key,
+                            Status = x.Value.Status.ToString(),
+                            Description = x.Value.Description
+                        }),
+                        HealthCheckDuration = report.TotalDuration
+                    };
+                    await context.Response.WriteAsync(JsonConvert.SerializeObject(response)).ConfigureAwait(false);
+                }
+            });
         }
+#pragma warning restore SA1413 // Use trailing comma in multi-line initializers
 
         /// <summary>
         /// The Retry policy.
