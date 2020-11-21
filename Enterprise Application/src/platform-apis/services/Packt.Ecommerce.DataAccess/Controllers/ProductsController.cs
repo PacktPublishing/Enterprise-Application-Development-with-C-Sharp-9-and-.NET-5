@@ -6,6 +6,7 @@
 
 namespace Packt.Ecommerce.DataAccess.Controllers
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
@@ -74,6 +75,11 @@ namespace Packt.Ecommerce.DataAccess.Controllers
         [Route("{id}")]
         public async Task<IActionResult> GetProductById(string id, [FromQuery][Required] string name)
         {
+            if (id == "Cloth.2")
+            {
+                throw new InvalidOperationException(name);
+            }
+
             Product result = await this.repository.GetByIdAsync(id, name).ConfigureAwait(false);
             if (result != null)
             {

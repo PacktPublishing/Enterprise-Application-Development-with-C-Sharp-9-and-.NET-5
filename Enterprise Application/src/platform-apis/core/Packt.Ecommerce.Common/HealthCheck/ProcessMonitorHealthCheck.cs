@@ -1,5 +1,5 @@
 ﻿// "//-----------------------------------------------------------------------".
-// <copyright file="ProcessMonitor.cs" company="Packt">
+// <copyright file="ProcessMonitorHealthCheck.cs" company="Packt">
 // Copyright (c) 2020 Packt Corporation. All rights reserved.
 // </copyright>
 // "//-----------------------------------------------------------------------".
@@ -14,7 +14,7 @@ namespace Packt.Ecommerce.Common.HealthCheck
     /// <summary>
     /// Custom health check for process monitor.
     /// </summary>
-    public class ProcessMonitor : IHealthCheck
+    public class ProcessMonitorHealthCheck : IHealthCheck
     {
         /// <summary>
         /// Field to hold process name.
@@ -22,10 +22,10 @@ namespace Packt.Ecommerce.Common.HealthCheck
         private readonly string processName;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProcessMonitor"/> class.
+        /// Initializes a new instance of the <see cref="ProcessMonitorHealthCheck"/> class.
         /// </summary>
         /// <param name="processName">Name of the process to monitor.</param>
-        public ProcessMonitor(string processName) => this.processName = processName;
+        public ProcessMonitorHealthCheck(string processName) => this.processName = processName;
 
         /// <summary>
         /// Check health.

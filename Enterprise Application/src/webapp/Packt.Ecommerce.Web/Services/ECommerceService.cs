@@ -70,6 +70,15 @@ namespace Packt.Ecommerce.Web.Services
                 products = await productResponse.Content.ReadFromJsonAsync<IEnumerable<ProductListViewModel>>().ConfigureAwait(false);
             }
 
+#pragma warning disable S125
+
+            // To Simulate an error uncomment below line
+            // if (products.Any())
+            // Sections of code should not be commented out
+            // {
+            //    throw new InvalidOperationException();
+            // }
+#pragma warning restore S125 // Sections of code should not be commented out
             return products;
         }
 

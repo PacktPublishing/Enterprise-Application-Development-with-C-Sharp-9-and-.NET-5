@@ -25,23 +25,23 @@
             </summary>
             <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
         </member>
-        <member name="T:Packt.Ecommerce.Common.HealthCheck.ProcessMonitor">
+        <member name="T:Packt.Ecommerce.Common.HealthCheck.ProcessMonitorHealthCheck">
             <summary>
             Custom health check for process monitor.
             </summary>
         </member>
-        <member name="F:Packt.Ecommerce.Common.HealthCheck.ProcessMonitor.processName">
+        <member name="F:Packt.Ecommerce.Common.HealthCheck.ProcessMonitorHealthCheck.processName">
             <summary>
             Field to hold process name.
             </summary>
         </member>
-        <member name="M:Packt.Ecommerce.Common.HealthCheck.ProcessMonitor.#ctor(System.String)">
+        <member name="M:Packt.Ecommerce.Common.HealthCheck.ProcessMonitorHealthCheck.#ctor(System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:Packt.Ecommerce.Common.HealthCheck.ProcessMonitor"/> class.
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.Common.HealthCheck.ProcessMonitorHealthCheck"/> class.
             </summary>
             <param name="processName">Name of the process to monitor.</param>
         </member>
-        <member name="M:Packt.Ecommerce.Common.HealthCheck.ProcessMonitor.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext,System.Threading.CancellationToken)">
+        <member name="M:Packt.Ecommerce.Common.HealthCheck.ProcessMonitorHealthCheck.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext,System.Threading.CancellationToken)">
             <summary>
             Check health.
             </summary>
@@ -196,7 +196,7 @@
             Extenstion class to register ProcessMonitor HealthCheck.
             </summary>
         </member>
-        <member name="M:Microsoft.Extensions.DependencyInjection.ProcessMonitorHealthCheckBuilderExtensions.AddProcessMonitor(Microsoft.Extensions.DependencyInjection.IHealthChecksBuilder,System.String,System.String,System.Nullable{Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus},System.Collections.Generic.IEnumerable{System.String})">
+        <member name="M:Microsoft.Extensions.DependencyInjection.ProcessMonitorHealthCheckBuilderExtensions.AddProcessMonitorHealthCheck(Microsoft.Extensions.DependencyInjection.IHealthChecksBuilder,System.String,System.String,System.Nullable{Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus},System.Collections.Generic.IEnumerable{System.String})">
             <summary>
             Regster the Process monitor Health check.
             </summary>

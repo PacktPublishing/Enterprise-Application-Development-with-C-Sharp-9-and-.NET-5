@@ -24,7 +24,7 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="failureStatus">Failure status.</param>
         /// <param name="tags">A list of tags that can be used for filtering health checks.</param>
         /// <returns>Health check builder for chaining.</returns>
-        public static IHealthChecksBuilder AddProcessMonitor(
+        public static IHealthChecksBuilder AddProcessMonitorHealthCheck(
             this IHealthChecksBuilder builder,
             string processName = default,
             string name = default,
@@ -32,8 +32,8 @@ namespace Microsoft.Extensions.DependencyInjection
             IEnumerable<string> tags = default)
         {
             return builder.Add(new HealthCheckRegistration(
-               name ?? "ProcessMOnitor",
-               sp => new ProcessMonitor(processName),
+               name ?? "ProcessMonitor",
+               sp => new ProcessMonitorHealthCheck(processName),
                failureStatus,
                tags));
         }
