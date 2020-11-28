@@ -6,6 +6,7 @@
 
 namespace Packt.Ecommerce.Order.Controllers
 {
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
@@ -69,7 +70,7 @@ namespace Packt.Ecommerce.Order.Controllers
             }
             else
             {
-                return this.NoContent();
+                return this.NotFound();
             }
         }
 
