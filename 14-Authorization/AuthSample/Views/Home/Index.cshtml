@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+@if (User.HasClaim(x => x.Type == "PremiumUser"))
+{
+    <h3>Yay!!, you are Premium User!!!, @User.FindFirst(x => x.Type == System.Security.Claims.ClaimTypes.Country)?.Value</h3>
+}
+

@@ -10,6 +10,7 @@ namespace Packt.Ecommerce.Web
     using System.Linq;
     using System.Net.Http;
     using Microsoft.ApplicationInsights.SnapshotCollector;
+    using Microsoft.AspNetCore.Authentication.OpenIdConnect;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Diagnostics.HealthChecks;
     using Microsoft.AspNetCore.Hosting;
@@ -17,6 +18,8 @@ namespace Packt.Ecommerce.Web
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using Microsoft.Identity.Web;
+    using Microsoft.Identity.Web.UI;
     using Newtonsoft.Json;
     using Packt.Ecommerce.Common.Options;
     using Packt.Ecommerce.Web.Contracts;
@@ -68,6 +71,12 @@ namespace Packt.Ecommerce.Web
                 .AddUrlGroup(new Uri(this.Configuration.GetValue<string>("ApplicationSettings:ProductsApiEndpoint")), name: "Product Service")
                 .AddUrlGroup(new Uri(this.Configuration.GetValue<string>("ApplicationSettings:OrdersApiEndpoint")), name: "Order Service")
                 .AddProcessMonitorHealthCheck("notepad", name: "Notepad monitor");
+
+            services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+               .AddMicrosoftIdentityWebApp(this.Configuration.GetSection("AzureAdB2C"));
+
+            services.AddRazorPages()
+                 .AddMicrosoftIdentityUI();
         }
 
         /// <summary>
@@ -91,6 +100,8 @@ namespace Packt.Ecommerce.Web
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
