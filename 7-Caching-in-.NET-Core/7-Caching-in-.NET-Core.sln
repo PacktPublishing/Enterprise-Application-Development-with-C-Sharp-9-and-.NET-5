@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryCache", "MemoryCache\MemoryCache.csproj", "{04C7B35E-6E4A-4961-B9B7-0EC0641F97EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLCache", "..\SQLCache\SQLCache.csproj", "{9706007A-93F5-4C4B-84E8-A56938685698}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLCache", "SQLCache\SQLCache.csproj", "{9706007A-93F5-4C4B-84E8-A56938685698}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
