@@ -1,0 +1,12 @@
+﻿@page
+@model  RazorSample.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<form method="post">
+    <div class="text-center">
+        <select asp-for="WeekDaySelected" asp-items="Model.WeekDay"></select>
+        <button type=Submit name="Submit">Submit</button>
+    </div>
+</form>
