@@ -228,24 +228,6 @@
             <param name="services">Services.</param>
             <returns>Scoped Services.</returns>
         </member>
-        <member name="T:Packt.Ecommerce.DataAccess.Program">
-            <summary>
-            The Program class.
-            </summary>
-        </member>
-        <member name="M:Packt.Ecommerce.DataAccess.Program.Main(System.String[])">
-            <summary>
-            Defines the entry point of the application.
-            </summary>
-            <param name="args">The arguments.</param>
-        </member>
-        <member name="M:Packt.Ecommerce.DataAccess.Program.CreateHostBuilder(System.String[])">
-            <summary>
-            Creates the host builder.
-            </summary>
-            <param name="args">arguments.</param>
-            <returns>Host builder.</returns>
-        </member>
         <member name="T:Packt.Ecommerce.DataAccess.Startup">
             <summary>
             Startup class.

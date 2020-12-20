@@ -19,7 +19,7 @@ namespace RecordType
 
             // Create instance of derived class with the copy of base instace
             Person person = new("Suneel", "Kunani");
-            Person person2 = new("Mahanya", "Kunani");
+            Person person2 = person with { FirstName = "Mahanya" };
         }
     }
 

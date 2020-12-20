@@ -1,7 +1,7 @@
-using System;
-
 namespace Packt.Ecommerce.UserManagement
 {
+    using System;
+
     public class WeatherForecast
     {
         public DateTime Date { get; set; }

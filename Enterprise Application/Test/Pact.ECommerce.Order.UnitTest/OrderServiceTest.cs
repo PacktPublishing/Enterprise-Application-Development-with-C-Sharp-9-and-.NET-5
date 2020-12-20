@@ -1,23 +1,23 @@
-﻿using AutoMapper;
-using Microsoft.Extensions.Options;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using Newtonsoft.Json;
-using Packt.Ecommerce.Caching.Interfaces;
-using Packt.Ecommerce.Common.Options;
-using Packt.Ecommerce.Order;
-using Packt.Ecommerce.Order.Services;
-using Pact.ECommerce.Order.UnitTest.Helper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Pact.ECommerce.Order.UnitTest
+﻿namespace Pact.ECommerce.Order.UnitTest
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net;
+    using System.Net.Http;
+    using System.Text;
+    using System.Threading.Tasks;
+    using AutoMapper;
+    using Microsoft.Extensions.Options;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Moq;
+    using Newtonsoft.Json;
+    using Packt.Ecommerce.Caching.Interfaces;
+    using Packt.Ecommerce.Common.Options;
+    using Packt.Ecommerce.Order;
+    using Packt.Ecommerce.Order.Services;
+    using Pact.ECommerce.Order.UnitTest.Helper;
+
     [TestClass]
     public class OrderServiceTest
     {

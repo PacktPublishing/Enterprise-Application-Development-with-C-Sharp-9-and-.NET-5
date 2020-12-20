@@ -14,3 +14,4 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage("Major Code Smell", "S112:General exceptions should never be thrown", Justification = "Service to service exception", Scope = "member", Target = "~M:Packt.Ecommerce.Product.Services.ProductsService.ThrowServiceToServiceErrors(System.Net.Http.HttpResponseMessage)~System.Threading.Tasks.Task")]
 [assembly: SuppressMessage("Design", "CA1052:Static holder types should be Static or NotInheritable", Justification = "Program class", Scope = "type", Target = "~T:Packt.Ecommerce.Product.Program")]
 [assembly: SuppressMessage("Major Code Smell", "S1118:Utility classes should not have public constructors", Justification = "Program class", Scope = "type", Target = "~T:Packt.Ecommerce.Product.Program")]
+[assembly: SuppressMessage("StyleCop.CSharp.OrderingRules", "SA1200:Using directives should be placed correctly", Justification = "Top level statement")]

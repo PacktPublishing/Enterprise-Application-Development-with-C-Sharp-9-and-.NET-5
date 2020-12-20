@@ -23,7 +23,7 @@ namespace Packt.Ecommerce.DTO.Models
         /// The identifier.
         /// </value>
         [Required]
-        public string Id { get; set; }
+        public string Id { get; init; }
 
         /// <summary>
         /// Gets or sets the name.

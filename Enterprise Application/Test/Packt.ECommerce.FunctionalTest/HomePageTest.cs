@@ -1,12 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using System.Linq;
-using WebDriverManager;
-using WebDriverManager.DriverConfigs.Impl;
-
-namespace Packt.ECommerce.FunctionalTest
+﻿namespace Packt.ECommerce.FunctionalTest
 {
+    using System.Linq;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using OpenQA.Selenium;
+    using OpenQA.Selenium.Chrome;
+    using WebDriverManager;
+    using WebDriverManager.DriverConfigs.Impl;
+
     [TestClass]
     public class HomePageTest
     {

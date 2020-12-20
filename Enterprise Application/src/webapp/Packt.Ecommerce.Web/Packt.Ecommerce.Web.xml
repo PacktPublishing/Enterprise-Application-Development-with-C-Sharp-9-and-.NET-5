@@ -182,24 +182,6 @@
             The CorrelationId.
             </value>
         </member>
-        <member name="T:Packt.Ecommerce.Web.Program">
-            <summary>
-            The program class.
-            </summary>
-        </member>
-        <member name="M:Packt.Ecommerce.Web.Program.Main(System.String[])">
-            <summary>
-            Defines the entry point of the application.
-            </summary>
-            <param name="args">The arguments.</param>
-        </member>
-        <member name="M:Packt.Ecommerce.Web.Program.CreateHostBuilder(System.String[])">
-            <summary>
-            Creates the host builder.
-            </summary>
-            <param name="args">arguments.</param>
-            <returns>Host builder.</returns>
-        </member>
         <member name="T:Packt.Ecommerce.Web.Services.ECommerceService">
             <summary>
             Common service interacting with backend.

@@ -69,24 +69,6 @@
             <param name="invoice">The invoice.</param>
             <returns>Invoice.</returns>
         </member>
-        <member name="T:Packt.Ecommerce.Invoice.Program">
-            <summary>
-            The Program class.
-            </summary>
-        </member>
-        <member name="M:Packt.Ecommerce.Invoice.Program.Main(System.String[])">
-            <summary>
-            Defines the entry point of the application.
-            </summary>
-            <param name="args">The arguments.</param>
-        </member>
-        <member name="M:Packt.Ecommerce.Invoice.Program.CreateHostBuilder(System.String[])">
-            <summary>
-            Creates the host builder.
-            </summary>
-            <param name="args">arguments.</param>
-            <returns>Host builder.</returns>
-        </member>
         <member name="T:Packt.Ecommerce.Invoice.Services.InvoiceService">
             <summary>
             The invoice service.

@@ -1,13 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
-using Packt.Ecommerce.DTO.Models;
-using Packt.Ecommerce.Order.Contracts;
-using Packt.Ecommerce.Order.Controllers;
-using System.Threading.Tasks;
-
-namespace Pact.ECommerce.Order.UnitTest
+﻿namespace Pact.ECommerce.Order.UnitTest
 {
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Moq;
+    using Packt.Ecommerce.DTO.Models;
+    using Packt.Ecommerce.Order.Contracts;
+    using Packt.Ecommerce.Order.Controllers;
+
     [TestClass]
     public class OrdersControllerTest
     {

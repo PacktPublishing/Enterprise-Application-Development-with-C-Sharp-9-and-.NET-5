@@ -98,24 +98,6 @@
             <param name="order">The order.</param>
             <returns>HTTP status code.</returns>
         </member>
-        <member name="T:Packt.Ecommerce.Order.Program">
-            <summary>
-            The Program class.
-            </summary>
-        </member>
-        <member name="M:Packt.Ecommerce.Order.Program.Main(System.String[])">
-            <summary>
-            Defines the entry point of the application.
-            </summary>
-            <param name="args">The arguments.</param>
-        </member>
-        <member name="M:Packt.Ecommerce.Order.Program.CreateHostBuilder(System.String[])">
-            <summary>
-            Creates the host builder.
-            </summary>
-            <param name="args">arguments.</param>
-            <returns>Host builder.</returns>
-        </member>
         <member name="T:Packt.Ecommerce.Order.Services.OrdersService">
             <summary>
             Orders service contract for CRUD operations.
