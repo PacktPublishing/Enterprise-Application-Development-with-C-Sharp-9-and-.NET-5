@@ -12,32 +12,8 @@ namespace Packt.Ecommerce.DTO.Models
     /// <summary>
     /// Model bound to UI to list all the products.
     /// </summary>
-    public class ProductListViewModel
+    public record ProductListViewModel(string Id, string Name, double Price)
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>
-        /// The name.
-        /// </value>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets the price.
-        /// </summary>
-        /// <value>
-        /// The price.
-        /// </value>
-        public int Price { get; set; }
-
         /// <summary>
         /// Gets or sets the image url.
         /// </summary>
@@ -45,6 +21,13 @@ namespace Packt.Ecommerce.DTO.Models
         /// The image url.
         /// </value>
         public List<Uri> ImageUrls { get; set; }
+        /// <summary>
+        /// Gets or sets the quantity.
+        /// </summary>
+        /// <value>
+        /// The rating.
+        /// </value>
+        public int Quantity { get; set; }
 
         /// <summary>
         /// Gets or sets the average rating.
@@ -53,13 +36,5 @@ namespace Packt.Ecommerce.DTO.Models
         /// The rating.
         /// </value>
         public double AverageRating { get; set; }
-
-        /// <summary>
-        /// Gets or sets the quantity.
-        /// </summary>
-        /// <value>
-        /// The rating.
-        /// </value>
-        public int Quantity { get; set; }
     }
 }
