@@ -50,9 +50,9 @@ namespace Packt.Ecommerce.DataAccess
             services.Configure<DatabaseSettingsOptions>(this.Configuration.GetSection("CosmosDB"));
             string accountEndPoint = this.Configuration.GetValue<string>("CosmosDB:AccountEndPoint");
             string authKey = this.Configuration.GetValue<string>("CosmosDB:AuthKey");
-            CosmosClientOptions options = new CosmosClientOptions()
+            CosmosClientOptions options = new ()
             {
-                SerializerOptions = new CosmosSerializationOptions() { IgnoreNullValues = true },
+                SerializerOptions = new () { IgnoreNullValues = true },
             };
             services.AddSingleton(s => new CosmosClient(accountEndPoint, authKey, options));
             services.AddRepositories();

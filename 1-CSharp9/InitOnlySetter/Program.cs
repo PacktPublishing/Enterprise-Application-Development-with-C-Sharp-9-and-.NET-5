@@ -5,6 +5,10 @@ namespace InitOnlySetter
 {
     public class Order
     {
+        /// <summary>
+        /// Order Id of the order
+        /// This can be only set at time of Order initialization
+        /// </summary>
         public int OrderId { get; init; }
         public decimal TotalPrice { get; set; }
     }
