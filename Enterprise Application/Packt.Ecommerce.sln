@@ -56,6 +56,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoadTest", "LoadTest", "{2D
 		..\..\..\..\ECommerce.jmx = ..\..\..\..\ECommerce.jmx
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Packt.Ecommerce.Logger", "src\platform-apis\core\Packt.Ecommerce.Logger\Packt.Ecommerce.Logger.csproj", "{F8B83B0A-2259-4071-942D-F83FDAE60884}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -114,6 +116,10 @@ Global
 		{0BF8A3A4-2E4E-4EE2-BFF5-01C18F5D04F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BF8A3A4-2E4E-4EE2-BFF5-01C18F5D04F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BF8A3A4-2E4E-4EE2-BFF5-01C18F5D04F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8B83B0A-2259-4071-942D-F83FDAE60884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8B83B0A-2259-4071-942D-F83FDAE60884}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8B83B0A-2259-4071-942D-F83FDAE60884}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8B83B0A-2259-4071-942D-F83FDAE60884}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -133,6 +139,7 @@ Global
 		{1F0831DC-047B-4545-99B7-6A0C56100913} = {6D6E345C-884F-49B6-80AB-272035AA1644}
 		{0BF8A3A4-2E4E-4EE2-BFF5-01C18F5D04F4} = {6D6E345C-884F-49B6-80AB-272035AA1644}
 		{2D26B872-533A-40C4-81A3-1133A9CCFBAD} = {6D6E345C-884F-49B6-80AB-272035AA1644}
+		{F8B83B0A-2259-4071-942D-F83FDAE60884} = {B9A34B55-3E2A-4679-84EF-05DF7884A8A5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {13117879-87A7-4433-9D63-C003F7A92AF1}

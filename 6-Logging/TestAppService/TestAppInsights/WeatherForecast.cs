@@ -1,6 +1,6 @@
 using System;
 
-namespace OrderProcessingServiceV2
+namespace TestAppInsights
 {
     public class WeatherForecast
     {

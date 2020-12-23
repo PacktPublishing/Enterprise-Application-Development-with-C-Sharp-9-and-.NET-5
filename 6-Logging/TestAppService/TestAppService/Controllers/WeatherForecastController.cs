@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace OrderProcessingServiceV2.Controllers
+namespace TestAppService.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -26,9 +26,10 @@ namespace OrderProcessingServiceV2.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            _logger.LogWarning("Test Warning");
-            _logger.LogError("Test Error");
-            _logger.LogCritical("Test Critical");
+            _logger.LogInformation("Logging Information for testing");
+            _logger.LogWarning("Logging Warning for testing");
+            _logger.LogError("Logging Error for testing");
+
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
