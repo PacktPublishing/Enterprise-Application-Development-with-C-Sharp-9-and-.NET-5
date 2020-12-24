@@ -19,8 +19,8 @@ namespace Logger
         /// <summary>
         /// Writes an Error Log Message
         /// </summary>
-        /// <param name="message"></param>
-        /// <param name="properties"></param>
+        /// <param name="message">Error Log Message</param>
+        /// <param name="properties">Log Message properties</param>
         void Error(string message, IDictionary<string, string> properties = null);
 
         void Event(string eventName, IDictionary<string, string> properties = null, IDictionary<string, double> metrics = null);
