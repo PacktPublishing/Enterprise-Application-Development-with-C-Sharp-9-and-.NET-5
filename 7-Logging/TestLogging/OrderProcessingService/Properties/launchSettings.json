@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "OrderProcessingService": {
+    "LoggerDemoService": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",

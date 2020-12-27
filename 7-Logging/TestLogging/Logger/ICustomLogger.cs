@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Logger
 {
-    public interface ILogger
+    public interface ICustomLogger
     {
         /// <summary>
         /// Logs dependency related message

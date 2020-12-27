@@ -6,7 +6,7 @@ using Logger;
 using Microsoft.AspNetCore.Mvc;
 //using Microsoft.Extensions.Logging;
 
-namespace OrderProcessingService.Controllers
+namespace LoggerDemoService.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -17,9 +17,9 @@ namespace OrderProcessingService.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        private readonly ILogger _logger;
+        private readonly ICustomLogger _logger;
 
-        public WeatherForecastController(ILogger logger)
+        public WeatherForecastController(ICustomLogger logger)
         {
             _logger = logger;
         }

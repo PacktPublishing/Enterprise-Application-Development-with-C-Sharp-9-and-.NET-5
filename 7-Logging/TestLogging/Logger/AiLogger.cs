@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Logger
 {
-    public class AiLogger : ILogger
+    public class AiLogger : ICustomLogger
     {
         private TelemetryClient client;
         

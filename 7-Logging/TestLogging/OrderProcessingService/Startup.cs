@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace OrderProcessingService
+namespace LoggerDemoService
 {
     public class Startup
     {
@@ -26,9 +26,7 @@ namespace OrderProcessingService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddLogger(Configuration);
-                        var logger = services.GetLogger();
-            logger.Information("End Configure services");
+            services.AddCustomLogger(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -8,11 +8,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace OrderProcessingService
+namespace LoggerDemoService
 {
     public static class ServiceExtensions
     {
-        public static IServiceCollection AddLogger(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddCustomLogger(this IServiceCollection services, IConfiguration configuration)
         {
             string instrumentationkey = configuration.GetValue<string>("Telemetry:InstrumentationKey");
             var aiOptions = new ApplicationInsightsServiceOptions
@@ -27,14 +27,14 @@ namespace OrderProcessingService
 
             services.AddApplicationInsightsTelemetry(aiOptions);
            
-            return services.AddScoped<ILogger, AiLogger>();
+            return services.AddScoped<ICustomLogger, AiLogger>();
         }
 
-        public static ILogger GetLogger(this IServiceCollection services)
-        {
-            var intermediateServiceProvider = services.BuildServiceProvider();
-            var logger = intermediateServiceProvider.GetService<ILogger>();
-            return logger;
-        }
+        //public static ICustomLogger GetLogger(this IServiceCollection services)
+        //{
+        //    var intermediateServiceProvider = services.BuildServiceProvider();
+        //    var logger = intermediateServiceProvider.GetService<ICustomLogger>();
+        //    return logger;
+        //}
     }
 }
