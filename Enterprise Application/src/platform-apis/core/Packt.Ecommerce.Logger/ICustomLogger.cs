@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Packt.Ecommerce.Logger
+namespace Logger
 {
-    public interface ILogger
+    public interface ICustomLogger
     {
         /// <summary>
         /// Logs dependency related message
@@ -53,7 +53,7 @@ namespace Packt.Ecommerce.Logger
         /// <param name="properties">Information Log Message properties</param>
         void Information(string message, IDictionary<string, string> properties = null);
 
-        
+
         /// <summary>
         /// Logs custom request message
         /// </summary>
@@ -64,7 +64,7 @@ namespace Packt.Ecommerce.Logger
         /// <param name="success">request succeeded or failed</param>
         void Request(string name, DateTimeOffset startTime, TimeSpan duration, string responseCode, bool success);
 
-        
+
         /// <summary>
         /// Logs Verbose message
         /// </summary>

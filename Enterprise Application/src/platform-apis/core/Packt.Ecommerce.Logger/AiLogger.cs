@@ -1,4 +1,5 @@
-﻿using Microsoft.ApplicationInsights;
+﻿using Logger;
+using Microsoft.ApplicationInsights;
 using Microsoft.ApplicationInsights.DataContracts;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Packt.Ecommerce.Logger
 {
-    public class AiLogger : ILogger
+    public class AiLogger : ICustomLogger
     {
         private TelemetryClient client;
         
