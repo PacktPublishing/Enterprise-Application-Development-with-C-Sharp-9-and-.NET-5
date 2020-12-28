@@ -1,8 +1,21 @@
-﻿@model HomeViewModel
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@model HomeViewModel
 @{
     ViewData["Title"] = "Home Page";
 }
 
+
+@{
+   string isFlightOn = Configuration["isFlightOn"];
+   if (string.Equals(isFlightOn, "true", StringComparison.OrdinalIgnoreCase))
+   {
+       <h1>
+        <strong>Flight content</strong>
+       </h1> 
+   }
+}
 
 
 <h2 class="text-success">Singleton.</h2>
@@ -27,3 +40,4 @@
 <p>
         <strong>ID:</strong> <code>@Model.Transient2</code>
 </p>
+
