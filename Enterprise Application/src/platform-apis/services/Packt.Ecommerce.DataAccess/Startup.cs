@@ -15,6 +15,7 @@ namespace Packt.Ecommerce.DataAccess
     using Packt.Ecommerce.Common.Middlewares;
     using Packt.Ecommerce.Common.Options;
     using Packt.Ecommerce.DataAccess.Extensions;
+    using Packt.Ecommerce.DataAccess.Services;
     using Packt.Ecommerce.DataStore;
 
     /// <summary>
@@ -68,6 +69,12 @@ namespace Packt.Ecommerce.DataAccess
                 });
                 services.AddApplicationInsightsTelemetry(appinsightsInstrumentationKey);
             }
+
+            // gRPC
+            services.AddGrpc(opt =>
+            {
+                opt.EnableDetailedErrors = true;
+            });
         }
 
         /// <summary>
@@ -92,6 +99,7 @@ namespace Packt.Ecommerce.DataAccess
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapGrpcService<ProductService>();
                 endpoints.MapControllers();
             });
         }

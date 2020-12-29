@@ -18,6 +18,7 @@
   <ItemGroup>
     <PackageReference Include="Automapper" Version="10.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.32.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.14.0" />
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="3.1.7" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.8" />
@@ -29,6 +30,12 @@
     <ProjectReference Include="..\..\core\Packt.Ecommerce.Common\Packt.Ecommerce.Common.csproj" />
     <ProjectReference Include="..\..\data\Packt.Ecommerce.Data.Models\Packt.Ecommerce.Data.Models.csproj" />
     <ProjectReference Include="..\..\data\Packt.Ecommerce.DTO.Models\Packt.Ecommerce.DTO.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="..\Packt.Ecommerce.DataAccess\Protos\ProductManager.proto" GrpcServices="Both">
+      <Link>Protos\ProductManager.proto</Link>
+    </Protobuf>
   </ItemGroup>
 
 

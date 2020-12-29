@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option csharp_namespace = "Packt.Ecommerce.DataAccess.Protos";
+import "google/protobuf/timestamp.proto";
+
+service ProductManager {
+	rpc GetProductById (ProductQuery) returns (Product);
+}
+
+message ProductQuery {
+	string id = 1;
+	string name =2;
+}
+
+message Product {
+	string id = 1;
+	string name = 2;
+	string category = 3;
+	int32 price = 4;
+	int32 quantity = 5;
+	google.protobuf.Timestamp createdDate = 6;
+	repeated string imageUrls = 7;
+	repeated Rating rating = 8;
+	repeated string format = 9;
+	repeated string authors = 10;
+	repeated int32 size = 11;
+	repeated string color = 12;
+	string etag = 13;
+}
+
+message Rating {
+	int32 stars = 1;
+	int32 percentage = 2;
+}

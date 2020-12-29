@@ -9,7 +9,9 @@ namespace Packt.Ecommerce.Product.Controllers
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
     using System.Threading.Tasks;
+    using Grpc.Net.Client;
     using Microsoft.AspNetCore.Mvc;
+    using Packt.Ecommerce.DataAccess.Protos;
     using Packt.Ecommerce.DTO.Models;
     using Packt.Ecommerce.Product.Contracts;
 
@@ -27,12 +29,34 @@ namespace Packt.Ecommerce.Product.Controllers
         private readonly IProductService productService;
 
         /// <summary>
+        /// Product service.
+        /// </summary>
+        private ProductManager.ProductManagerClient client;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="ProductsController"/> class.
         /// </summary>
         /// <param name="productService">The product service.</param>
         public ProductsController(IProductService productService)
         {
             this.productService = productService;
+        }
+
+        /// <summary>
+        /// Gets the Product service clinet.
+        /// </summary>
+        protected ProductManager.ProductManagerClient Client
+        {
+            get
+            {
+                if (this.client == null)
+                {
+                    var channel = GrpcChannel.ForAddress("https://localhost:44350");
+                    this.client = new ProductManager.ProductManagerClient(channel);
+                }
+
+                return this.client;
+            }
         }
 
         /// <summary>
@@ -44,6 +68,7 @@ namespace Packt.Ecommerce.Product.Controllers
         public async Task<IActionResult> GetProductsAsync([FromQuery] string filterCriteria = null)
         {
             var products = await this.productService.GetProductsAsync(filterCriteria).ConfigureAwait(false);
+
             if (products.Any())
             {
                 return this.Ok(products);
@@ -65,6 +90,9 @@ namespace Packt.Ecommerce.Product.Controllers
         public async Task<IActionResult> GetProductById(string id, [FromQuery][Required]string name)
         {
             var product = await this.productService.GetProductByIdAsync(id, name).ConfigureAwait(false);
+            var v = await this.Client.GetProductByIdAsync(new ProductQuery { Id = id, Name = name });
+            v.Name = "asdfads;";
+
             if (product != null)
             {
                 return this.Ok(product);

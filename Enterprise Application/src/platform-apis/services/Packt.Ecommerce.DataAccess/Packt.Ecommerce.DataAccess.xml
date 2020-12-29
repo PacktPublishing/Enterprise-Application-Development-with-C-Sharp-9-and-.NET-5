@@ -228,6 +228,30 @@
             <param name="services">Services.</param>
             <returns>Scoped Services.</returns>
         </member>
+        <member name="T:Packt.Ecommerce.DataAccess.Services.ProductService">
+            <summary>
+            Products service.
+            </summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Services.ProductService.repository">
+            <summary>
+            The products repository.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Services.ProductService.#ctor(Packt.Ecommerce.DataStore.Contracts.IProductRepository)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Packt.Ecommerce.DataAccess.Services.ProductService"/> class.
+            </summary>
+            <param name="repository">products repository.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Services.ProductService.GetProductById(Packt.Ecommerce.DataAccess.Protos.ProductQuery,Grpc.Core.ServerCallContext)">
+            <summary>
+            Get products.
+            </summary>
+            <param name="request">request object.</param>
+            <param name="context">context object.</param>
+            <returns>specific product.</returns>
+        </member>
         <member name="T:Packt.Ecommerce.DataAccess.Startup">
             <summary>
             Startup class.
@@ -259,6 +283,79 @@
             </summary>
             <param name="app">The application.</param>
             <param name="env">The env.</param>
+        </member>
+        <member name="T:Packt.Ecommerce.DataAccess.Protos.ProductManagerReflection">
+            <summary>Holder for reflection information generated from Protos/ProductManager.proto</summary>
+        </member>
+        <member name="P:Packt.Ecommerce.DataAccess.Protos.ProductManagerReflection.Descriptor">
+            <summary>File descriptor for Protos/ProductManager.proto</summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Protos.ProductQuery.IdFieldNumber">
+            <summary>Field number for the "id" field.</summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Protos.ProductQuery.NameFieldNumber">
+            <summary>Field number for the "name" field.</summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Protos.Product.IdFieldNumber">
+            <summary>Field number for the "id" field.</summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Protos.Product.NameFieldNumber">
+            <summary>Field number for the "name" field.</summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Protos.Product.CategoryFieldNumber">
+            <summary>Field number for the "category" field.</summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Protos.Product.PriceFieldNumber">
+            <summary>Field number for the "price" field.</summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Protos.Product.QuantityFieldNumber">
+            <summary>Field number for the "quantity" field.</summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Protos.Product.CreatedDateFieldNumber">
+            <summary>Field number for the "createdDate" field.</summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Protos.Product.ImageUrlsFieldNumber">
+            <summary>Field number for the "imageUrls" field.</summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Protos.Product.RatingFieldNumber">
+            <summary>Field number for the "rating" field.</summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Protos.Product.FormatFieldNumber">
+            <summary>Field number for the "format" field.</summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Protos.Product.AuthorsFieldNumber">
+            <summary>Field number for the "authors" field.</summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Protos.Product.SizeFieldNumber">
+            <summary>Field number for the "size" field.</summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Protos.Product.ColorFieldNumber">
+            <summary>Field number for the "color" field.</summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Protos.Product.EtagFieldNumber">
+            <summary>Field number for the "etag" field.</summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Protos.Rating.StarsFieldNumber">
+            <summary>Field number for the "stars" field.</summary>
+        </member>
+        <member name="F:Packt.Ecommerce.DataAccess.Protos.Rating.PercentageFieldNumber">
+            <summary>Field number for the "percentage" field.</summary>
+        </member>
+        <member name="P:Packt.Ecommerce.DataAccess.Protos.ProductManager.Descriptor">
+            <summary>Service descriptor</summary>
+        </member>
+        <member name="T:Packt.Ecommerce.DataAccess.Protos.ProductManager.ProductManagerBase">
+            <summary>Base class for server-side implementations of ProductManager</summary>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Protos.ProductManager.BindService(Packt.Ecommerce.DataAccess.Protos.ProductManager.ProductManagerBase)">
+            <summary>Creates service definition that can be registered with a server</summary>
+            <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+        </member>
+        <member name="M:Packt.Ecommerce.DataAccess.Protos.ProductManager.BindService(Grpc.Core.ServiceBinderBase,Packt.Ecommerce.DataAccess.Protos.ProductManager.ProductManagerBase)">
+            <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
+            Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
+            <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
+            <param name="serviceImpl">An object implementing the server-side handling logic.</param>
         </member>
     </members>
 </doc>
