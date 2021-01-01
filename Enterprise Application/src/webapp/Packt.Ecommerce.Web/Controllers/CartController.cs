@@ -8,6 +8,7 @@ namespace Packt.Ecommerce.Web.Controllers
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
+    using Microsoft.ApplicationInsights;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
     using Packt.Ecommerce.DTO.Models;
@@ -29,14 +30,21 @@ namespace Packt.Ecommerce.Web.Controllers
         private readonly IECommerceService eCommerceService;
 
         /// <summary>
+        /// Telemetry client.
+        /// </summary>
+        private readonly TelemetryClient telemetry;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="CartController"/> class.
         /// </summary>
         /// <param name="logger">Logger.</param>
         /// <param name="eCommerceService">Service.</param>
-        public CartController(ILogger<CartController> logger, IECommerceService eCommerceService)
+        /// <param name="telemetry">Telemetry Client.</param>
+        public CartController(ILogger<CartController> logger, IECommerceService eCommerceService, TelemetryClient telemetry)
         {
             this.logger = logger;
             this.eCommerceService = eCommerceService;
+            this.telemetry = telemetry;
         }
 
         /// <summary>
@@ -52,6 +60,8 @@ namespace Packt.Ecommerce.Web.Controllers
             {
                 return this.BadRequest();
             }
+
+            this.telemetry.TrackEvent("Add Item To Cart");
 
             OrderDetailsViewModel newOrder = new OrderDetailsViewModel();
             if (this.ModelState.IsValid)
