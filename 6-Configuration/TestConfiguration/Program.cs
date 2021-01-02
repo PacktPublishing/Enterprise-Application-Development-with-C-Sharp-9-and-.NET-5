@@ -85,7 +85,7 @@ namespace TestConfiguration
                       builtConfig["KeyVault:AppClientId"],
                       builtConfig["KeyVault:AppClientSecret"]);
 
-                    config.AddSql("Connection string","Query"); 
+                    config.AddSql("Connection string","Query"); //Add your connection string here
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
