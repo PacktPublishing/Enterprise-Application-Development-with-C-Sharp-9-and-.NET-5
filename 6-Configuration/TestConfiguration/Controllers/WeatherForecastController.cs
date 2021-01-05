@@ -19,15 +19,20 @@ namespace TestConfiguration.Controllers
         {
             _logger = logger;
             _configuration = configuration;
-        }       
-
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "TestKey", _configuration["TestKey"],
-                                  "TestSqlKey", _configuration["TestSqlKey"]   };
         }
 
-       
-}
+        [HttpGet]
+        public Dictionary<string, string> Get()
+        {
+
+            return new Dictionary<string, string>{
+                { "TestKey", _configuration["TestKey"]} ,
+                { "TestKeyFromAdditionalConfigJSON", _configuration["TestKeyFromAdditionalConfigJSON"] },
+                {"TestKeyFromAdditionalXMLConfig", _configuration["TestKeyFromAdditionalXMLConfig"] },
+                { "TestSqlKey",  _configuration["TestSqlKey"] }
+            };
+        }
+
+
+    }
 }

@@ -22,76 +22,40 @@ namespace TestConfiguration
             CreateHostBuilder(args).Build().Run();
         }
 
-        //AKV Configuration provider
-        //public static IHostBuilder CreateHostBuilder(string[] args) =>
-        //    Host.CreateDefaultBuilder(args)
-        //        .ConfigureAppConfiguration((context, config) =>
-        //        {
-        //            var builtConfig = config.Build();
-
-        //            var azureServiceTokenProvider = new AzureServiceTokenProvider();
-        //            var keyVaultClient = new KeyVaultClient(
-        //                new KeyVaultClient.AuthenticationCallback(
-        //                    azureServiceTokenProvider.KeyVaultTokenCallback));
-        //            config.AddAzureKeyVault(
-        //              $"https://{builtConfig["KeyVault:Name"]}.vault.azure.net/",
-        //              builtConfig["KeyVault:AppClientId"],
-        //              builtConfig["KeyVault:AppClientSecret"]);
-        //        })
-        //        .ConfigureWebHostDefaults(webBuilder =>
-        //        {
-        //            webBuilder.UseStartup<Startup>();
-        //        });
-
-
-        //JSON Configuration provider
-        //public static IHostBuilder CreateHostBuilder(string[] args) =>
-        //    Host.CreateDefaultBuilder(args)
-        //        .ConfigureAppConfiguration((context, config) =>
-        //        {
-        //            config.AddJsonFile("AdditionalConfig.json",
-        //            optional: true,
-        //            reloadOnChange: true);
-        //        })
-        //        .ConfigureWebHostDefaults(webBuilder =>
-        //        {
-        //            webBuilder.UseStartup<Startup>();
-        //        });
-
-
-        //XML Configuration provider
-        //public static IHostBuilder CreateHostBuilder(string[] args) =>
-        //    Host.CreateDefaultBuilder(args)
-        //        .ConfigureAppConfiguration((context, config) =>
-        //        {
-        //            config.AddXmlFile("AdditionalXMLConfig.xml",
-        //            optional: true,
-        //            reloadOnChange: true);
-        //        })
-        //        .ConfigureWebHostDefaults(webBuilder =>
-        //        {
-        //            webBuilder.UseStartup<Startup>();
-        //        });
-
-
-        //SQL Configuration provider
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration((context, config) =>
                 {
-                    var builtConfig = config.Build();                    
+                    var builtConfig = config.Build();
+
+                    //AKV Configuration provider
+                    var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                    var keyVaultClient = new KeyVaultClient(
+                        new KeyVaultClient.AuthenticationCallback(
+                            azureServiceTokenProvider.KeyVaultTokenCallback));
+
                     config.AddAzureKeyVault(
                       $"https://{builtConfig["KeyVault:Name"]}.vault.azure.net/",
                       builtConfig["KeyVault:AppClientId"],
                       builtConfig["KeyVault:AppClientSecret"]);
 
-                    config.AddSql("Connection string","Query"); //Add your connection string here
+                    //JSON Configuration provider
+                    config.AddJsonFile("AdditionalConfig.json",
+                    optional: true,
+                    reloadOnChange: true);
+
+                    //XML Configuration provider
+                    config.AddXmlFile("AdditionalXMLConfig.xml",
+                    optional: true,
+                    reloadOnChange: true);
+
+                    //Custom SQL Configuration provider
+                    config.AddSql("Connection string", "Query");
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
                 });
-
 
     }
 
