@@ -1,0 +1,174 @@
+﻿@page "/addproduct"
+@inject IHttpClientFactory Factory
+@using System.Net.Http.Json;
+@using Packt.Ecommerce.DTO.Models;
+@using System.Text.Json;
+@using System.Text;
+@inject NavigationManager navigation
+
+<h1>Add Product</h1>
+<EditForm Model="@product" OnSubmit="@OnSubmit">    
+    <section class="content">
+        <!-- Default box -->
+        <div class="card card-solid">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        <DataAnnotationsValidator />
+                        <ValidationSummary />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-sm-3">
+                        <label>Product Name : </label>
+                    </div>
+                    <div class="col-6 col-sm-3">
+                        <InputText id="category" @bind-Value="product.Name"></InputText>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-sm-3">
+                        <label for="category">Product Category : </label>
+                    </div>
+                    <div class="col-6 col-sm-3">
+                        <InputSelect @bind-Value="product.Category">
+                            <option selected disabled value="-1"> Choose Category</option>
+                            <option value="Clothing">Clothing</option>
+                            <option value="Books">Books</option>
+                        </InputSelect>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-sm-3">
+                        <label for="price">Product Price : </label>
+                    </div>
+                    <div class="col-6 col-sm-3">
+                        <InputNumber id="price" @bind-Value="product.Price"></InputNumber>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-sm-3">
+                        <label for="quantity">Product Quantity : </label>
+                    </div>
+                    <div class="col-6 col-sm-3">
+                        <InputNumber id="quantity" @bind-Value="product.Quantity"></InputNumber>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-sm-3">
+                        <label for="category">Image URL : </label>
+                    </div>
+                    <div class="col-6 col-sm-3">
+                        <InputText id="category" @bind-Value="ImageURL"></InputText>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-sm-3">
+                        <label for="category">Format : </label>
+                    </div>
+                    <div class="col-6 col-sm-3">
+                        <InputText id="category" @bind-Value="Format"></InputText>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-sm-3">
+                        <label for="category">Authors : </label>
+                    </div>
+                    <div class="col-6 col-sm-3">
+                        <InputText id="category" @bind-Value="Authors"></InputText>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-sm-3">
+                        <label for="category">Size : </label>
+                    </div>
+                    <div class="col-6 col-sm-3">
+                        <InputText id="category" @bind-Value="Size"></InputText>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-sm-3">
+                        <label for="category">Colors : </label>
+                    </div>
+                    <div class="col-6 col-sm-3">
+                        <InputText id="category" @bind-Value="Color"></InputText>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        <button class="btn btn-navbar" type="submit">
+                            <div class="mt-4">
+                                <div class="btn btn-primary btn-lg btn-flat">
+                                    <i class="fas fa-cart-plus fa-lg mr-2"></i>
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;">
+                                            Add Product
+                                        </font>
+                                    </font>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+
+    </section>
+</EditForm>
+@code {
+    private ProductDetailsViewModel product = new ProductDetailsViewModel()
+    {
+        Id = Guid.NewGuid().ToString(),
+    };
+    public string Format { get; set; }
+    public string Authors { get; set; }
+    public string Size { get; set; }
+    public string Color { get; set; }
+    [System.ComponentModel.DataAnnotations.Required]
+    public string ImageURL { get; set; }
+
+    protected async Task OnSubmit(EditContext editContext)
+    {
+        var isValid = editContext.Validate();
+        if (isValid)
+        {
+            if (!string.IsNullOrWhiteSpace(Format))
+            {
+                product.Format = this.Format.Split(',').ToList();
+            }
+
+            if (!string.IsNullOrWhiteSpace(Authors))
+            {
+                product.Authors = this.Authors.Split(',').ToList();
+            }
+
+            if (!string.IsNullOrWhiteSpace(Size))
+            {
+                product.Size = this.Size.Split(',').Select(int.Parse).ToList();
+            }
+
+            if (!string.IsNullOrWhiteSpace(Color))
+            {
+                product.Color = this.Color.Split(',').ToList();
+            }
+
+            if (!string.IsNullOrWhiteSpace(Color))
+            {
+                product.Color = this.Color.Split(',').ToList();
+            }
+
+            product.ImageUrls = this.ImageURL.Split(',').ToList();
+
+            var client = Factory.CreateClient("Products");
+            using var addProduct = new StringContent(JsonSerializer.Serialize(product), Encoding.UTF8, "application/json");
+            var result = await client.PostAsync("", addProduct).ConfigureAwait(false);
+
+            if (result.IsSuccessStatusCode)
+            {
+                navigation.NavigateTo("products");
+            }
+        }
+    }
+}

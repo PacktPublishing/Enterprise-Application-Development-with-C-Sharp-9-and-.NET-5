@@ -21,6 +21,7 @@ namespace Packt.Ecommerce.DTO.Models
         /// The image url.
         /// </value>
         public List<Uri> ImageUrls { get; set; }
+
         /// <summary>
         /// Gets or sets the quantity.
         /// </summary>

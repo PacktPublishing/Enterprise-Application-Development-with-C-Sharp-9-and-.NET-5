@@ -67,12 +67,18 @@
             Ecommerce instance.
             </summary>
         </member>
-        <member name="M:Packt.Ecommerce.Web.Controllers.CartController.#ctor(Microsoft.Extensions.Logging.ILogger{Packt.Ecommerce.Web.Controllers.CartController},Packt.Ecommerce.Web.Contracts.IECommerceService)">
+        <member name="F:Packt.Ecommerce.Web.Controllers.CartController.telemetry">
+            <summary>
+            Telemetry client.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Controllers.CartController.#ctor(Microsoft.Extensions.Logging.ILogger{Packt.Ecommerce.Web.Controllers.CartController},Packt.Ecommerce.Web.Contracts.IECommerceService,Microsoft.ApplicationInsights.TelemetryClient)">
             <summary>
             Initializes a new instance of the <see cref="T:Packt.Ecommerce.Web.Controllers.CartController"/> class.
             </summary>
             <param name="logger">Logger.</param>
             <param name="eCommerceService">Service.</param>
+            <param name="telemetry">Telemetry Client.</param>
         </member>
         <member name="M:Packt.Ecommerce.Web.Controllers.CartController.Index(Packt.Ecommerce.DTO.Models.ProductListViewModel)">
             <summary>
@@ -103,12 +109,18 @@
             Ecommerce instance.
             </summary>
         </member>
-        <member name="M:Packt.Ecommerce.Web.Controllers.OrdersController.#ctor(Microsoft.Extensions.Logging.ILogger{Packt.Ecommerce.Web.Controllers.OrdersController},Packt.Ecommerce.Web.Contracts.IECommerceService)">
+        <member name="F:Packt.Ecommerce.Web.Controllers.OrdersController.telemetry">
+            <summary>
+            Telemetry client.
+            </summary>
+        </member>
+        <member name="M:Packt.Ecommerce.Web.Controllers.OrdersController.#ctor(Microsoft.Extensions.Logging.ILogger{Packt.Ecommerce.Web.Controllers.OrdersController},Packt.Ecommerce.Web.Contracts.IECommerceService,Microsoft.ApplicationInsights.TelemetryClient)">
             <summary>
             Initializes a new instance of the <see cref="T:Packt.Ecommerce.Web.Controllers.OrdersController"/> class.
             </summary>
             <param name="logger">Logger.</param>
             <param name="eCommerceService">Service.</param>
+            <param name="telemetry">Telemetry Client.</param>
         </member>
         <member name="M:Packt.Ecommerce.Web.Controllers.OrdersController.Create(Packt.Ecommerce.DTO.Models.OrderDetailsViewModel)">
             <summary>

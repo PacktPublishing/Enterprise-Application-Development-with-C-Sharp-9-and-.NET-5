@@ -53,10 +53,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Packt.ECommerce.FunctionalT
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LoadTest", "LoadTest", "{2D26B872-533A-40C4-81A3-1133A9CCFBAD}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\ECommerce.jmx = ..\..\..\..\ECommerce.jmx
+		..\..\ECommerce.jmx = ..\..\ECommerce.jmx
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Packt.Ecommerce.Logger", "src\platform-apis\core\Packt.Ecommerce.Logger\Packt.Ecommerce.Logger.csproj", "{F8B83B0A-2259-4071-942D-F83FDAE60884}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packt.Ecommerce.Blazorweb", "Packt.Ecommerce.Blazorweb\Packt.Ecommerce.Blazorweb.csproj", "{734B5289-9478-4967-8942-C15CD5E2D7F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -120,6 +122,10 @@ Global
 		{F8B83B0A-2259-4071-942D-F83FDAE60884}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8B83B0A-2259-4071-942D-F83FDAE60884}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8B83B0A-2259-4071-942D-F83FDAE60884}.Release|Any CPU.Build.0 = Release|Any CPU
+		{734B5289-9478-4967-8942-C15CD5E2D7F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{734B5289-9478-4967-8942-C15CD5E2D7F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{734B5289-9478-4967-8942-C15CD5E2D7F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{734B5289-9478-4967-8942-C15CD5E2D7F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -140,6 +146,7 @@ Global
 		{0BF8A3A4-2E4E-4EE2-BFF5-01C18F5D04F4} = {6D6E345C-884F-49B6-80AB-272035AA1644}
 		{2D26B872-533A-40C4-81A3-1133A9CCFBAD} = {6D6E345C-884F-49B6-80AB-272035AA1644}
 		{F8B83B0A-2259-4071-942D-F83FDAE60884} = {B9A34B55-3E2A-4679-84EF-05DF7884A8A5}
+		{734B5289-9478-4967-8942-C15CD5E2D7F1} = {374007AE-ED9C-48E6-B5B8-D82C09C5FB60}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {13117879-87A7-4433-9D63-C003F7A92AF1}

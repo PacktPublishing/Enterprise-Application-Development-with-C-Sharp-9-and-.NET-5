@@ -9,7 +9,6 @@ namespace Packt.Ecommerce.DTO.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using Newtonsoft.Json;
 
     /// <summary>
     /// Product view model that will be bound to UI to show product details.

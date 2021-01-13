@@ -1,0 +1,66 @@
+﻿@page "/products"
+@inject IHttpClientFactory Factory
+@using System.Net.Http.Json;
+@using Packt.Ecommerce.DTO.Models;
+
+<h1>Products</h1>
+<div>
+    <a class="btn btn-info" href="addproduct"><i class="oi oi-plus"></i> Add Product</a>
+</div>
+@if (products == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{   
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>ImageUrls</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in products)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.Price</td>
+                    <td>@product.Quantity</td>
+                    <td><img src="@product.ImageUrls[0]" class="product-image w-10" alt="Product" /></td>
+                    <td>
+                        <a class="btn btn-info" href="editproduct/@product.Id/@product.Name"><i class="oi oi-pencil"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<ProductListViewModel> products;
+    public string ErrorMessage;
+    public bool Error => !string.IsNullOrWhiteSpace(ErrorMessage);
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var client = Factory.CreateClient("Products");
+            var result = await client.GetAsync("").ConfigureAwait(false);
+            result.EnsureSuccessStatusCode();
+            products = new List<ProductListViewModel>();
+            products = await result.Content.ReadFromJsonAsync<List<ProductListViewModel>>().ConfigureAwait(false);
+        }
+        catch (Exception ex)
+        {
+            ErrorMessage = ex.Message;
+        }
+        await base.OnInitializedAsync();
+    }
+}
