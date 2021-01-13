@@ -52,6 +52,7 @@
                     </div>
                     <div class="col-6 col-sm-3">
                         <InputNumber id="quantity" @bind-Value="product.Quantity"></InputNumber>
+                        <ValidationMessage For="@(() => product.Quantity)" />
                     </div>
                 </div>
                 <div class="row">
