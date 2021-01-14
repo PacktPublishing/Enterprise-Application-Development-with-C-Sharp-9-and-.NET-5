@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\platform-apis\data\Packt.Ecommerce.DTO.Models\Packt.Ecommerce.DTO.Models.csproj" />
+    <ProjectReference Include="..\..\platform-apis\data\Packt.Ecommerce.DTO.Models\Packt.Ecommerce.DTO.Models.csproj" />
   </ItemGroup>
 
 </Project>
