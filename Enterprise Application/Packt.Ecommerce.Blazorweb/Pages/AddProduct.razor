@@ -131,7 +131,7 @@
     public string ImageURL { get; set; }
 
     protected async Task OnSubmit(EditContext editContext)
-    {
+    {   
         var isValid = editContext.Validate();
         if (isValid)
         {

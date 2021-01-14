@@ -12,7 +12,7 @@
     <p><em>Loading...</em></p>
 }
 else
-{   
+{
     <table class="table">
         <thead>
             <tr>
@@ -32,7 +32,7 @@ else
                     <td>@product.Name</td>
                     <td>@product.Price</td>
                     <td>@product.Quantity</td>
-                    <td><img src="@product.ImageUrls[0]" class="product-image w-10" alt="Product" /></td>
+                    <td><img src="@product.ImageUrls[0]" class="product-image w-10 col-3" alt="Product" /></td>
                     <td>
                         <a class="btn btn-info" href="editproduct/@product.Id/@product.Name"><i class="oi oi-pencil"></i></a>
                     </td>
@@ -44,23 +44,13 @@ else
 
 @code {
     private List<ProductListViewModel> products;
-    public string ErrorMessage;
-    public bool Error => !string.IsNullOrWhiteSpace(ErrorMessage);
 
     protected override async Task OnInitializedAsync()
     {
-        try
-        {
-            var client = Factory.CreateClient("Products");
-            var result = await client.GetAsync("").ConfigureAwait(false);
-            result.EnsureSuccessStatusCode();
-            products = new List<ProductListViewModel>();
-            products = await result.Content.ReadFromJsonAsync<List<ProductListViewModel>>().ConfigureAwait(false);
-        }
-        catch (Exception ex)
-        {
-            ErrorMessage = ex.Message;
-        }
-        await base.OnInitializedAsync();
+        var client = Factory.CreateClient("Products");
+        var result = await client.GetAsync("").ConfigureAwait(false);
+        result.EnsureSuccessStatusCode();
+        products = new List<ProductListViewModel>();
+        products = await result.Content.ReadFromJsonAsync<List<ProductListViewModel>>().ConfigureAwait(false);
     }
 }

@@ -60,6 +60,15 @@ namespace Packt.Ecommerce.Product
                 .AddPolicyHandler(CircuitBreakerPolicy()); // Circuit breakerpolicy
             services.AddScoped<IProductService, ProductsService>();
 
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.WithOrigins("*");
+                    });
+            });
+
             // Inject Automapper
             services.AddAutoMapper(typeof(AutoMapperProfile));
 
@@ -109,6 +118,8 @@ namespace Packt.Ecommerce.Product
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 
