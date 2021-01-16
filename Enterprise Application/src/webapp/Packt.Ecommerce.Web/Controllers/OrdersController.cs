@@ -55,13 +55,14 @@ namespace Packt.Ecommerce.Web.Controllers
         public async Task<IActionResult> Create(OrderDetailsViewModel order)
         {
             this.telemetry.TrackEvent("Create Order");
-            InvoiceDetailsViewModel invoice = new InvoiceDetailsViewModel();
             if (this.ModelState.IsValid)
             {
+                InvoiceDetailsViewModel invoice;
                 invoice = await this.eCommerceService.SubmitOrder(order).ConfigureAwait(false);
+                return this.RedirectToAction("Index", new { invoiceId = invoice.Id });
             }
 
-            return this.RedirectToAction("Index", new { invoiceId = invoice.Id });
+            return this.RedirectToAction("Index", "Cart", new { orderId = order.Id });
         }
 
         /// <summary>

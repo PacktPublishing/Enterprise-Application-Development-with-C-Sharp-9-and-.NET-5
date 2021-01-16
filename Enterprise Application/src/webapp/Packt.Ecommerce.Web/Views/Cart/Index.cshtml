@@ -70,26 +70,26 @@
                             </div>
                             <h4 class="mb-3">Billing address</h4>
                             <div class="mb-3">
-                                <label for="address">Address</label>                                
-                                <input type="text" class="form-control" id="ShippingAddress.Address1" name="ShippingAddress.Address1" placeholder="1234 Main St" required>
-                                <div class="invalid-feedback">
-                                    Please enter your shipping address.
-                                </div>
+                                <label for="address">Address</label>
+                                <input asp-for="ShippingAddress.Address1" class="form-control" placeholder="1234 Main St"/>
+                                <span asp-validation-for="ShippingAddress.Address1" class="text-danger"></span>
                             </div>
 
                             <div class="mb-3">
                                 <label for="address2">City</label>
-                                <input type="text" class="form-control" id="ShippingAddress.City" name="ShippingAddress.City" placeholder="Hyderabad" required>
+                                <input asp-for="ShippingAddress.City" class="form-control" placeholder="Hyderabad" />
+                                <span asp-validation-for="ShippingAddress.City" class="text-danger"></span>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-5 mb-3">
                                     <label for="country">Country</label>
-                                    <select class="custom-select d-block w-100" id="ShippingAddress.Country" name="ShippingAddress.Country" required>
+                                    <select class="custom-select d-block w-100" asp-for="ShippingAddress.Country">
                                         <option value="">Choose...</option>
                                         <option value="India">India</option>
                                         <option value="United States">United States</option>
                                     </select>
+                                    <span asp-validation-for="ShippingAddress.Country" class="text-danger"></span>
                                 </div>
                             </div>
                             <hr class="mb-4">
@@ -108,7 +108,7 @@
                                     <img src="~/img/credit/paypal2.png" alt="Paypal">
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row needs-validation was-validated">
                                 <div class="col-md-6 mb-3">
                                     <label for="cc-name">Name on card</label>
                                     <input type="text" class="form-control" id="cc-name" placeholder="" required>
@@ -125,7 +125,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row needs-validation was-validated">
                                 <div class="col-md-3 mb-3">
                                     <label for="cc-expiration">Expiration</label>
                                     <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
