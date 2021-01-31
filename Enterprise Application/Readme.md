@@ -5,15 +5,15 @@
 3) Run both the emulators
 4) Install Azure Storage explorer https://azure.microsoft.com/en-in/features/storage-explorer/ and connect to the local Azure Storage instance
 
-![Storage Explore1](readmeimages/Storage-Explorer1.png)
+![Storage Explore1](readmeimages/Storage-Explorer1.PNG)
 
 5) Create a container **book** and upload image files that can be used as products for ecommerce application. Few sample images are available in readmeimages folder.
 
-![Storage Explore2](readmeimages/Storage-Explorer2.png)
+![Storage Explore2](readmeimages/Storage-Explorer2.PNG)
 
 6) Right click on the images and click on **Get Shared Access Signature...** and generate the URL of the image. Generate the URL that can be valid for an year by increasing the time range.
 
-![Storage Explore3](readmeimages/Storage-Explorer3.png)
+![Storage Explore3](readmeimages/Storage-Explorer3.PNG)
 
 7) Repeat this process for all images and Copy the URLs, these will be used to store in the Cosmos DB.
 8) Navigate to the localhost URL used as data explorer of Azure Cosmos DB Emulator, and create a new database by clicking on New Container -> New Database and name it **Ecommerce**. 
@@ -61,11 +61,11 @@
 
 10) Update AccountEndPoint,AuthKey in appsettings.json of Packt.Ecommerce.DataAccess.
 
-![Settings](readmeimages/settings.png)
+![Settings](readmeimages/Settings.PNG)
 
 11) Setup startup projects as shown in the image and press F5 in Visual Studio application should be up and running (Multiple browser tabs each representing one application)
 
-![Startupproject](readmeimages/StartupProject.png)
+![Startupproject](readmeimages/StartupProject.PNG)
 
 
 # Static Analyzers
