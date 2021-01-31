@@ -1,0 +1,105 @@
+trigger:
+- main
+ 
+variables:
+  BuildConfiguration: 'Release'
+  buildPlatform: 'Any CPU'
+  solution: '**/*.sln'
+  azureSubscription: 'HelloWorld-Con' # replace this with your service connection name to connect Azure subscription
+  devAppServiceName: 'webSitejtrb7psidvozs' # replace this with your app service name
+  testAppServiceName: 'webSitejtrb8psidvozs' # replace this with your app service name
+
+stages:
+  - stage: 'Build'
+    displayName: 'Build the web application'
+    jobs:
+    - job: 'Build'
+      displayName: 'Build job'
+      pool:
+        vmImage: 'ubuntu-latest'
+
+      steps:
+        - task: UseDotNet@2
+          displayName: 'Use .NET Core sdk 5.0.x'
+          inputs:
+            packageType: 'sdk'
+            version: '5.0.x'
+            includePreviewVersions: true
+
+        - task: DotNetCoreCLI@2
+          displayName: Build
+          inputs:
+            command: 'build'
+            projects: '**/*.csproj'
+            arguments: '--configuration $(BuildConfiguration)'
+        
+        - task: DotNetCoreCLI@2
+          displayName: Publish
+          inputs:
+            command: 'publish'
+            publishWebProjects: false
+            projects: '**/*HelloWorld.csproj'
+            arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)/web'
+
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: '$(Build.ArtifactStagingDirectory)/web'
+            ArtifactName: 'drop'
+            publishLocation: 'Container'
+    - job: 'Test'
+      displayName: 'Run Tests'
+      pool:
+         vmImage: 'ubuntu-latest'
+      steps:
+       - task: DotNetCoreCLI@2
+         displayName: Test
+         inputs:
+           command: 'test'
+           projects: '**/*[Tt]ests/*.csproj'
+           arguments: '--configuration $(BuildConfiguration)'    
+
+  - stage: 'Dev'
+    displayName: 'Deploy to Dev'
+    dependsOn: Build
+    jobs:
+    - deployment: Deploy
+      pool:
+        vmImage: 'ubuntu-latest'
+      environment: dev
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+            - download: current
+              artifact: drop
+            - task: AzureWebApp@1
+              displayName: 'Azure App Service Deploy: website'
+              inputs:
+                azureSubscription: '$(azureSubscription)'
+                appType: 'webApp'
+                appName: '$(devAppServiceName)'
+                package: '$(Pipeline.Workspace)/drop/*.zip'
+                deploymentMethod: 'auto'
+
+  - stage: 'Test'
+    displayName: 'Deploy to Test'
+    dependsOn: Dev
+    jobs:
+    - deployment: Deploy
+      pool:
+        vmImage: 'ubuntu-latest'
+      environment: test
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+            - download: current
+              artifact: drop
+            - task: AzureWebApp@1
+              displayName: 'Azure App Service Deploy: website'
+              inputs:
+                azureSubscription: '$(azureSubscription)'
+                appType: 'webApp'
+                appName: '$(testAppServiceName)'
+                package: '$(Pipeline.Workspace)/drop/*.zip'
+                deploymentMethod: 'auto'
