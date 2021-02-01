@@ -70,10 +70,10 @@
 
 # Static Analyzers
 
-All the projects have following recommeded static analyzers integrated with them as a Nuget package reference.
+All the projects have following static analyzers integrated with them as a Nuget package reference.
 
 - Microsoft.CodeAnalysis.FxCopAnalyzers
 - SonarAnalyzer.CSharp
 - StyleCop.Analyzers
 
-These are automatically added to any project that is part of this solution through the root the **Directory.Build.props** file in root of the repository.
+These are automatically added to any project that is part of this solution through the **Directory.Build.props** file in root of the repository.
