@@ -61,7 +61,7 @@
 
 10) Update AccountEndPoint,AuthKey in appsettings.json of Packt.Ecommerce.DataAccess.
 
-![Settings](readmeimages/Settings.PNG)
+![Settings](readmeimages/settings.PNG)
 
 11) Setup startup projects as shown in the image and press F5 in Visual Studio application should be up and running (Multiple browser tabs each representing one application)
 
