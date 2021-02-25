@@ -13,7 +13,7 @@ This book covers the following exciting features:
 * Design enterprise apps by making the most of the latest features of .NET 5
 * Discover di?erent layers of an app, such as the data layer, API layer, and web layer
 * Explore end-to-end architecture, implement an enterprise web app using .NET and C# 9, and deploy the app on Azure
-* Focus on the core concepts of web application development such as dependency injection, caching, logging, con?guration, and authentication, and implement them in .NET 5
+* Focus on the core concepts of web application development such as dependency injection, caching, logging, configuration, and authentication, and implement them in .NET 5
 * Integrate the new .NET 5 health and performance check APIs with your app
 * Understand how .NET 5 works and contribute to the .NET 5 platform
 
