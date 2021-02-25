@@ -50,7 +50,7 @@ We also provide a PDF file that has color images of the screenshots/diagrams use
 
 * Adopting .NET 5 [[Packt]](https://www.packtpub.com/product/adopting-net-5/9781800560567?utm_source=github&utm_medium=repository&utm_campaign=9781800560567) [[Amazon]](https://www.amazon.com/dp/1800560567)
 
-## Get to Know the Author
+## Get to Know the Authors
 **Ravindra Akella**
 works as a senior consultant at Microsoft and has more than 14 years of software development experience. Specializing in .NET and web-related technologies, his current role involves the end-to-end ownership of products right from architecture to delivery. He has led the software architecture design, development, and delivery of large, complex solutions using the Azure cloud and related technologies. He is a tech-savvy developer who is passionate about embracing new technologies. He has delivered talks and sessions on Azure and other technologies at international conferences. He has also authored books on .NET Core 3.0 before.
 
