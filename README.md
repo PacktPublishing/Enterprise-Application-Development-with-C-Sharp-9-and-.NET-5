@@ -62,3 +62,7 @@ is a passionate developer who strives to learn something new every day. With ove
 
 **Bhupesh Guptha Muthiyalu**
 is a Microsoft certified professional and works at Microsoft as a software engineering manager. He has 16+ years of software development experience on the .NET technology stack. His current role involves designing systems that are resilient to the iterations and changes required by the needs of enterprise businesses, validating architectural innovations, delivering solutions with high quality, managing the end-to-end ownership of products, and building diverse teams with capabilities to fulfill customer objectives. He is passionate about creating reusable components and identifying opportunities to make a product better.
+### Download a free PDF
+
+ <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
+<p align="center"> <a href="https://packt.link/free-ebook/9781800209442">https://packt.link/free-ebook/9781800209442 </a> </p>
